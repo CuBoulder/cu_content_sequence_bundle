@@ -1,0 +1,6 @@
+name = Timeline Bundle
+core = 7.x
+package = CU-Timeline-Bundle
+version = 7.x-1.0
+
+dependencies[] = cu_timeline
