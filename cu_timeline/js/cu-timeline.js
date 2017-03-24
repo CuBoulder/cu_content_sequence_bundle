@@ -1,6 +1,6 @@
 (function( $ ){
 jQuery(document).ready(function($){
-  
+
   $('.cd-horizontal-timeline .events li a').first().addClass('selected');
   $('.cd-horizontal-timeline .events-content li').first().addClass('selected');
 	var timelines = $('.cd-horizontal-timeline'),

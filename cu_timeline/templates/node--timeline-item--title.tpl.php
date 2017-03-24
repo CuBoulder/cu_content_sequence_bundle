@@ -16,7 +16,6 @@
             <?php print $timeline_display_date['date']; ?>
           </div>
         <?php endif; ?>
-      	<?php print render($content['body']); ?>
       </div>
     </div>
   </div>

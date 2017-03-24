@@ -6,6 +6,24 @@
 
 include_once 'cu_timeline.features.inc';
 
+function cu_timeline_style_options() {
+  return array(
+    'horizontal' => 'Horizontal',
+    'vertical' => 'Vertical',
+  );
+}
+
+function cu_timeline_date_display_options() {
+
+  $options = array();
+  $options['day'] = 'Day: ' . date('F j, Y');
+  $options['month'] = 'Month: ' . date('F Y');
+  $options['year'] = 'Year: ' . date('Y');
+  $options['hidden'] = 'Hidden';
+
+  return $options;
+}
+
 function cu_timeline_menu() {
   $items = array();
   $items['timeline/view/%cu_timeline'] = array(
@@ -52,6 +70,7 @@ function cu_timeline_preprocess_entity(&$vars) {
     $vars['theme_hook_suggestions'][] = 'bean__timeline__' . $style;
 
     $date_display = $vars['field_timeline_date_display'][0]['value'];
+    $view_mode = $vars['field_timeline_content_display'][0]['value'];
 
     $content = ($style == 'vertical') ? $vars['field_timeline_content'][0]['value'] : 'auto';
 
@@ -134,14 +153,27 @@ function cu_timeline_preprocess_entity(&$vars) {
           'date' => $display_date,
           'nid' => $node->nid,
         );
-        $node->timeline_display_date['date'] = date($item_granularity_display[$granularity_value], strtotime($date));
-        $grouped_output[$group_date][] = node_view($node, 'teaser');
+        $grouped_output[$group_date]['#datetime'] = date($item_granularity_display[$granularity_value], strtotime($date));
+        if ($date_display != 'hidden') {
+          $node->timeline_display_date['date'] = date($item_granularity_display[$date_display], strtotime($date));
+        }
+        else {
+          $node->timeline_display_date['date'] = '';
+        }
+        $grouped_output[$group_date][$node->nid] = node_view($node, $view_mode);
+
       }
       $vars['dates'] = $dates;
       $output = array();
       foreach ($grouped_output as $date => $group) {
-        $grouped_output[$date]['#prefix'] = '<li data-date="' . $date . '" class="timeline-single-item">';
+        if ($style == 'grid') {
+          $grouped_output[$date]['#prefix'] = '<li data-date="' . $date . '" class="timeline-single-item"><div class="group-date">' . $group['#datetime'] . '</div>';
+        }
+        else {
+          $grouped_output[$date]['#prefix'] = '<li data-date="' . $date . '" class="timeline-single-item">';
+        }
         $grouped_output[$date]['#suffix'] = '</li>';
+        $display_date = date($granularity_display[$granularity_value], strtotime($date));
       }
       $timeline = $grouped_output;
     }
@@ -201,7 +233,7 @@ function cu_timeline_preprocess_entity(&$vars) {
 
         $entity->timeline_display_date['date'] = ($date_display == 'visible') ? date($item_granularity_display['day'], strtotime($date)) : NULL;
 
-        $grouped_output[$group_date][] = node_view($entity, 'teaser');
+        $grouped_output[$group_date][] = node_view($entity, $view_mode);
       }
 
 
@@ -243,6 +275,7 @@ function _cu_timeline_format_date($date, $granularity_value) {
 
 function cu_timeline_preprocess_node(&$vars) {
   if ($vars['type'] == 'timeline_item') {
+    $original_date = NULL;
     if (!empty($vars['node']->field_timeline_date)) {
       $original_date = $vars['node']->field_timeline_date[LANGUAGE_NONE][0]['value'];
       $newDate = date("d/m/Y", strtotime($original_date)) . 'T' . date("H:i", strtotime($original_date));
@@ -252,6 +285,19 @@ function cu_timeline_preprocess_node(&$vars) {
     else {
       $vars['data_date'] = '';
       $vars['content']['timeline_item_date'] = '';
+    }
+    if (!empty($vars['node']->field_timeline_date_display)) {
+      $display = $vars['node']->field_timeline_date_display[LANGUAGE_NONE][0]['value'];
+    } else {
+      $display = 'day';
+    }
+    if ($original_date && ($display != 'hidden')) {
+      $displays = array(
+        'day' => 'F j, Y',
+        'month' => 'F Y',
+        'year' => 'Y',
+      );
+      $vars['content']['timeline_item_date']['#markup'] = date($displays[$display], strtotime($original_date));
     }
   }
 }
@@ -263,29 +309,41 @@ function cu_timeline_preprocess_node(&$vars) {
  * when creating a new block;
  */
 function cu_timeline_form_bean_form_alter(&$form, &$form_state, $form_id) {
-  if (($form['bean']['#value']->type == 'timeline')) {
+  if (($form['bean']['#value']->type == 'timeline1')) {
 
     if (!$form['bean']['#value']->bid) {
       // Leave datefield default value blank
       unset($form['field_timeline_date_range'][LANGUAGE_NONE][0]['#default_value']);
     }
 
-    $form['field_timeline_content']['#states'] = array(
+
+    $form['timeline_content_population'] = array(
+      '#type' => 'fieldset',
+      '#title' => 'Timeline Content Population',
+      '#weight' => 4,
+    );
+    $form['timeline_content_population']['field_timeline_content'] = $form['field_timeline_content'];
+    unset($form['field_timeline_content']);
+
+    $form['timeline_content_population']['#states'] = array(
       'visible' => array(
         ':input[name="field_timeline_style[und]"]' => array('value' => 'vertical'),
       ),
     );
 
+    $weight = $form['timeline_content_population']['#weight'];
     // Move fields into fieldsets to handle conditionals
     $form['timeline_auto'] = array(
       '#type' => 'fieldset',
       '#title' => 'Timeline Content',
-      '#weight' => 4,
+      '#weight' => $weight + .1,
       '#states' => array(
        'visible' => array(
          array(':input[name="field_timeline_content[und]"]' => array('value' => 'auto')),
          'or',
          array(':input[name="field_timeline_style[und]"]' => array('value' => 'horizontal')),
+         'or',
+         array(':input[name="field_timeline_style[und]"]' => array('value' => 'grid')),
        ),
      ),
     );
@@ -302,7 +360,7 @@ function cu_timeline_form_bean_form_alter(&$form, &$form_state, $form_id) {
     $form['timeline_manual'] = array(
       '#type' => 'fieldset',
       '#title' => 'Timeline Content',
-      '#weight' => 5,
+      '#weight' => $weight + .1,
       '#states' => array(
        'visible' => array(
          ':input[name="field_timeline_content[und]"]' => array('value' => 'manual'),
@@ -312,7 +370,6 @@ function cu_timeline_form_bean_form_alter(&$form, &$form_state, $form_id) {
     );
     $fields = array(
       'field_timeline_content_item',
-      'field_timeline_date_display',
     );
     foreach ($fields as $field) {
       $form['timeline_manual'][$field] = $form[$field];

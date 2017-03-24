@@ -6,5 +6,10 @@
   ?>
 </div>
 <?php
+  if (!empty($content['timeline_item_date'])) {
+    print render($content['timeline_item_date']);
+  }
+?>
+<?php
   print render($content['body']);
 ?>

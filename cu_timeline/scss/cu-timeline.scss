@@ -272,3 +272,50 @@ body #mobile-navigation-wrapper {
   width: 100%;
   height: auto;
 }
+
+/* Grid Timeline */
+.cd-grid-timeline {
+  ol.timeline,
+  ol.timeline > li {
+    list-style: none;
+    list-style-image: none;
+    margin: 0;
+    padding: 0;
+  }
+  ol.timeline {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 -20px;
+  }
+  .timeline-item-wrapper {
+    margin-bottom: 20px;
+    h3.timeline-node-title {
+      font-size: 100%;
+      font-weight: 600;
+      margin: 0;
+    }
+  }
+  .group-date {
+    font-weight: 600;
+    font-size: 110%;
+    border-bottom: 1px solid #e7e7e7;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+  }
+  @media screen and (min-width:960px) {
+    ol.timeline > li {
+      width: 25%;
+      padding: 0 20px;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+ol.timeline-group,
+ol.timeline-group li {
+  list-style: none;
+  list-style-image: none;
+  margin: 0;
+  padding: 0;
+}

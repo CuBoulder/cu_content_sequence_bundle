@@ -63,3 +63,13 @@ body #mobile-navigation-wrapper a { text-align: center; }
   .cd-vertical-timeline .timeline-single-item:nth-child(even):before { right: auto; left: -9px; } }
 
 .timeline-image img { margin-bottom: 20px; width: 100%; height: auto; }
+
+/* Grid Timeline */
+.cd-grid-timeline ol.timeline, .cd-grid-timeline ol.timeline > li { list-style: none; list-style-image: none; margin: 0; padding: 0; }
+.cd-grid-timeline ol.timeline { display: flex; flex-direction: row; flex-wrap: wrap; margin: 0 -20px; }
+.cd-grid-timeline .timeline-item-wrapper { margin-bottom: 20px; }
+.cd-grid-timeline .timeline-item-wrapper h3.timeline-node-title { font-size: 100%; font-weight: 600; margin: 0; }
+.cd-grid-timeline .group-date { font-weight: 600; font-size: 110%; border-bottom: 1px solid #e7e7e7; margin-bottom: 10px; padding-bottom: 10px; }
+@media screen and (min-width: 960px) { .cd-grid-timeline ol.timeline > li { width: 25%; padding: 0 20px; margin-bottom: 20px; } }
+
+ol.timeline-group, ol.timeline-group li { list-style: none; list-style-image: none; margin: 0; padding: 0; }
