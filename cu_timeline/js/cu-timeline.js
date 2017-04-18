@@ -36,7 +36,9 @@ jQuery(document).ready(function($){
       var distance = Math.abs(daydiff(timelineComponents['timelineDates'][0], timelineComponents['timelineDates'][i])),
       distanceNorm = Math.round(distance / timelineComponents['eventsMinLapse']) + 2;
 
-      distnew = distprev + 150;
+      var spacing = timelineSpacing(timelineComponents['timelineDates'].length);
+
+      distnew = distprev + spacing;
       timelineComponents['timelineEvents'].eq(i).css('left', distnew + 'px');
       distprev = distnew;
       }
@@ -92,10 +94,7 @@ jQuery(document).ready(function($){
 				updateFilling($(this), timelineComponents['fillingLine'], timelineTotWidth);
 				updateVisibleContent($(this), timelineComponents['eventsContent']);
 
-        var fragment = $(this).attr('href');
-        var currentURL = window.location.href.split('#')[0];
-        var newHREF = currentURL + fragment;
-        history.pushState('', document.title, newHREF);
+        timelineUpdateURL();
 
 			});
 
@@ -191,11 +190,12 @@ jQuery(document).ready(function($){
 	}
 
 	function setTimelineWidth(timelineComponents, width) {
+    var spacing = timelineSpacing(timelineComponents['timelineDates'].length);
 		var timeSpan = daydiff(timelineComponents['timelineDates'][0], timelineComponents['timelineDates'][timelineComponents['timelineDates'].length-1]),
 			timeSpanNorm = timeSpan/timelineComponents['eventsMinLapse'],
 			timeSpanNorm = Math.round(timeSpanNorm) + 4,
 			//totalWidth = timeSpanNorm*width;
-      totalWidth = (timelineComponents['timelineDates'].length * 150) + 200;
+      totalWidth = (timelineComponents['timelineDates'].length * spacing) + 200;
 		timelineComponents['eventsWrapper'].css('width', totalWidth+'px');
 		updateFilling(timelineComponents['eventsWrapper'].find('a.selected'), timelineComponents['fillingLine'], totalWidth);
 		updateTimelinePosition('next', timelineComponents['eventsWrapper'].find('a.selected'), timelineComponents);
@@ -335,6 +335,21 @@ jQuery(document).ready(function($){
     else {
       $('.cd-timeline-item-navigation a.next').removeClass('inactive');
     }
+  }
+
+  function timelineUpdateURL() {
+    var fragment = $(this).attr('href');
+    var currentURL = window.location.href.split('#')[0];
+    var newHREF = currentURL + fragment;
+    history.pushState('', document.title, newHREF);
+  }
+
+  function timelineSpacing(timelineLength) {
+    var spacing = 150;
+    if (timelineLength < 5) {
+      spacing = 250;
+    }
+    return spacing;
   }
 });
 })( jQuery );

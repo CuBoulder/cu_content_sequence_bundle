@@ -10,237 +10,37 @@
 function cu_timeline_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'bean-timeline-field_timeline_category'.
-  $field_instances['bean-timeline-field_timeline_category'] = array(
+  // Exported field_instance: 'bean-timeline-field_timeline_item'.
+  $field_instances['bean-timeline-field_timeline_item'] = array(
     'bundle' => 'timeline',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Choose a category of timeline items to display.',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'taxonomy',
-        'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 0,
+        'module' => 'field_collection',
+        'settings' => array(
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_fields',
+        'weight' => 8,
       ),
     ),
     'entity_type' => 'bean',
     'fences_wrapper' => 'no_wrapper',
-    'field_name' => 'field_timeline_category',
-    'label' => 'Category',
+    'field_name' => 'field_timeline_item',
+    'label' => 'Timeline Items',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 1,
-      'module' => 'options',
+      'active' => 0,
+      'module' => 'field_collection',
       'settings' => array(),
-      'type' => 'options_buttons',
-      'weight' => 4,
-    ),
-  );
-
-  // Exported field_instance: 'bean-timeline-field_timeline_content'.
-  $field_instances['bean-timeline-field_timeline_content'] = array(
-    'bundle' => 'timeline',
-    'default_value' => array(
-      0 => array(
-        'value' => 'auto',
-      ),
-    ),
-    'default_value_function' => '',
-    'default_value_php' => '',
-    'deleted' => 0,
-    'description' => 'Choose how the timeline contents are populated. Auto is ideal for content such as deadlines, important dates, etc. It is recommended for large amounts of content within the timeline. Manual is  recommended for smaller amounts of content and is manually configured. Items can be placed in any order.',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 4,
-      ),
-    ),
-    'entity_type' => 'bean',
-    'fences_wrapper' => 'no_wrapper',
-    'field_name' => 'field_timeline_content',
-    'label' => 'Content',
-    'required' => 1,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_buttons',
+      'type' => 'field_collection_embed',
       'weight' => 3,
-    ),
-  );
-
-  // Exported field_instance: 'bean-timeline-field_timeline_content_item'.
-  $field_instances['bean-timeline-field_timeline_content_item'] = array(
-    'bundle' => 'timeline',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 5,
-      ),
-    ),
-    'entity_type' => 'bean',
-    'fences_wrapper' => 'no_wrapper',
-    'field_name' => 'field_timeline_content_item',
-    'label' => 'Item',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'entityreference',
-      'settings' => array(
-        'match_operator' => 'CONTAINS',
-        'path' => '',
-        'size' => 60,
-      ),
-      'type' => 'entityreference_autocomplete',
-      'weight' => 7,
-    ),
-  );
-
-  // Exported field_instance: 'bean-timeline-field_timeline_date_display'.
-  $field_instances['bean-timeline-field_timeline_date_display'] = array(
-    'bundle' => 'timeline',
-    'default_value' => array(
-      0 => array(
-        'value' => 'visible',
-      ),
-    ),
-    'default_value_function' => '',
-    'default_value_php' => FALSE,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 6,
-      ),
-    ),
-    'entity_type' => 'bean',
-    'fences_wrapper' => 'no_wrapper',
-    'field_name' => 'field_timeline_date_display',
-    'label' => 'Date Display',
-    'required' => 1,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 8,
-    ),
-  );
-
-  // Exported field_instance: 'bean-timeline-field_timeline_date_range'.
-  $field_instances['bean-timeline-field_timeline_date_range'] = array(
-    'bundle' => 'timeline',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'module' => 'date',
-        'settings' => array(
-          'format_type' => 'long',
-          'fromto' => 'both',
-          'multiple_from' => '',
-          'multiple_number' => '',
-          'multiple_to' => '',
-          'show_remaining_days' => FALSE,
-        ),
-        'type' => 'date_default',
-        'weight' => 1,
-      ),
-    ),
-    'entity_type' => 'bean',
-    'fences_wrapper' => 'no_wrapper',
-    'field_name' => 'field_timeline_date_range',
-    'label' => 'Date Range',
-    'required' => 0,
-    'settings' => array(
-      'default_value' => 'now',
-      'default_value2' => 'same',
-      'default_value_code' => '',
-      'default_value_code2' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'date',
-      'settings' => array(
-        'increment' => 15,
-        'input_format' => 'm/d/Y - H:i:s',
-        'input_format_custom' => '',
-        'label_position' => 'above',
-        'no_fieldset' => 0,
-        'text_parts' => array(),
-        'year_range' => '-3:+3',
-      ),
-      'type' => 'date_popup',
-      'weight' => 6,
-    ),
-  );
-
-  // Exported field_instance: 'bean-timeline-field_timeline_granularity'.
-  $field_instances['bean-timeline-field_timeline_granularity'] = array(
-    'bundle' => 'timeline',
-    'default_value' => array(
-      0 => array(
-        'value' => 'day',
-      ),
-    ),
-    'default_value_function' => '',
-    'default_value_php' => '',
-    'deleted' => 0,
-    'description' => 'Choose how timeline dates are grouped.  Days is recommended for shorter timelines (less than 2 years), while months or years are recommended for longer timelines.',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_key',
-        'weight' => 2,
-      ),
-    ),
-    'entity_type' => 'bean',
-    'fences_wrapper' => 'no_wrapper',
-    'field_name' => 'field_timeline_granularity',
-    'label' => 'Granularity',
-    'required' => 1,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 5,
     ),
   );
 
@@ -253,9 +53,9 @@ function cu_timeline_field_default_field_instances() {
       ),
     ),
     'default_value_function' => '',
-    'default_value_php' => FALSE,
+    'default_value_php' => '',
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Choose a display style for the timeline.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -278,13 +78,49 @@ function cu_timeline_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 2,
+      'weight' => 3,
     ),
   );
 
-  // Exported field_instance: 'node-timeline_item-body'.
-  $field_instances['node-timeline_item-body'] = array(
-    'bundle' => 'timeline_item',
+  // Exported field_instance:
+  // 'field_collection_item-field_timeline_item-field_timeline_item_content'.
+  $field_instances['field_collection_item-field_timeline_item-field_timeline_item_content'] = array(
+    'bundle' => 'field_timeline_item',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'field_collection',
+        'settings' => array(
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_fields',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'fences_wrapper' => 'no_wrapper',
+    'field_name' => 'field_timeline_item_content',
+    'label' => 'Timeline Item Content',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_timeline_item-field_timeline_item_short_title'.
+  $field_instances['field_collection_item-field_timeline_item-field_timeline_item_short_title'] = array(
+    'bundle' => 'field_timeline_item',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -293,140 +129,39 @@ function cu_timeline_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 1,
-      ),
-      'teaser' => array(
-        'label' => 'hidden',
-        'module' => 'smart_trim',
-        'settings' => array(
-          'more_link' => 0,
-          'more_text' => 'Read more',
-          'summary_handler' => 'full',
-          'trim_length' => 50,
-          'trim_link' => 0,
-          'trim_options' => array(
-            'text' => 'text',
-          ),
-          'trim_preserve_tags' => '',
-          'trim_suffix' => '...',
-          'trim_type' => 'words',
-        ),
-        'type' => 'smart_trim_format',
-        'weight' => 1,
+        'type' => 'text_plain',
+        'weight' => 0,
       ),
     ),
-    'entity_type' => 'node',
-    'field_name' => 'body',
-    'label' => 'Body',
-    'required' => FALSE,
-    'settings' => array(
-      'display_summary' => TRUE,
-      'text_processing' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'module' => 'text',
-      'settings' => array(
-        'rows' => 20,
-        'summary_rows' => 5,
-      ),
-      'type' => 'text_textarea_with_summary',
-      'weight' => 1,
-    ),
-  );
-
-  // Exported field_instance: 'node-timeline_item-field_timeline_category'.
-  $field_instances['node-timeline_item-field_timeline_category'] = array(
-    'bundle' => 'timeline_item',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 2,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 3,
-      ),
-    ),
-    'entity_type' => 'node',
+    'entity_type' => 'field_collection_item',
     'fences_wrapper' => 'no_wrapper',
-    'field_name' => 'field_timeline_category',
-    'label' => 'Category',
-    'required' => 0,
+    'field_name' => 'field_timeline_item_short_title',
+    'label' => 'Timeline Item Title',
+    'required' => 1,
     'settings' => array(
+      'linkit' => array(
+        'button_text' => 'Search',
+        'enable' => 0,
+        'profile' => '',
+      ),
+      'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'taxonomy',
+      'module' => 'text',
       'settings' => array(
-        'autocomplete_path' => 'taxonomy/autocomplete',
         'size' => 60,
       ),
-      'type' => 'taxonomy_autocomplete',
+      'type' => 'text_textfield',
       'weight' => 3,
     ),
   );
 
-  // Exported field_instance: 'node-timeline_item-field_timeline_date'.
-  $field_instances['node-timeline_item-field_timeline_date'] = array(
-    'bundle' => 'timeline_item',
-    'deleted' => 0,
-    'description' => 'Enter a date for your timeline item. A date is required if you want this item to show up in an auto-populated timeline.',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 3,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 2,
-      ),
-    ),
-    'entity_type' => 'node',
-    'fences_wrapper' => 'no_wrapper',
-    'field_name' => 'field_timeline_date',
-    'label' => 'Date',
-    'required' => 0,
-    'settings' => array(
-      'default_value' => 'now',
-      'default_value2' => 'same',
-      'default_value_code' => '',
-      'default_value_code2' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'date',
-      'settings' => array(
-        'increment' => 15,
-        'input_format' => 'm/d/Y - H:i:s',
-        'input_format_custom' => '',
-        'label_position' => 'above',
-        'no_fieldset' => 0,
-        'text_parts' => array(),
-        'year_range' => '-3:+3',
-      ),
-      'type' => 'date_popup',
-      'weight' => 4,
-    ),
-  );
-
-  // Exported field_instance: 'node-timeline_item-field_timeline_image'.
-  $field_instances['node-timeline_item-field_timeline_image'] = array(
-    'bundle' => 'timeline_item',
+  // Exported field_instance:
+  // 'field_collection_item-field_timeline_item_content-field_timeline_image'.
+  $field_instances['field_collection_item-field_timeline_item_content-field_timeline_image'] = array(
+    'bundle' => 'field_timeline_item_content',
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -435,23 +170,13 @@ function cu_timeline_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => 'slider',
-        ),
-        'type' => 'image',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'hidden',
-        'module' => 'image',
-        'settings' => array(
-          'image_link' => 'content',
-          'image_style' => 'slider',
+          'image_style' => 'large_wide_thumbnail',
         ),
         'type' => 'image',
         'weight' => 0,
       ),
     ),
-    'entity_type' => 'node',
+    'entity_type' => 'field_collection_item',
     'fences_wrapper' => 'no_wrapper',
     'field_name' => 'field_timeline_image',
     'label' => 'Image',
@@ -491,6 +216,7 @@ function cu_timeline_field_default_field_instances() {
           'colorbox__focal_point_preview' => 0,
           'colorbox__hero' => 0,
           'colorbox__large' => 0,
+          'colorbox__large_rectangle_thumbnail' => 0,
           'colorbox__large_square_thumbnail' => 0,
           'colorbox__large_wide_thumbnail' => 0,
           'colorbox__linkit_thumb' => 0,
@@ -520,6 +246,7 @@ function cu_timeline_field_default_field_instances() {
           'image_focal_point_preview' => 0,
           'image_hero' => 0,
           'image_large' => 0,
+          'image_large_rectangle_thumbnail' => 0,
           'image_large_square_thumbnail' => 0,
           'image_large_wide_thumbnail' => 0,
           'image_linkit_thumb' => 0,
@@ -544,22 +271,115 @@ function cu_timeline_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance:
+  // 'field_collection_item-field_timeline_item_content-field_timeline_item_text'.
+  $field_instances['field_collection_item-field_timeline_item_content-field_timeline_item_text'] = array(
+    'bundle' => 'field_timeline_item_content',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'fences_wrapper' => 'no_wrapper',
+    'field_name' => 'field_timeline_item_text',
+    'label' => 'Text',
+    'required' => 0,
+    'settings' => array(
+      'linkit' => array(
+        'button_text' => 'Search',
+        'enable' => 0,
+        'profile' => '',
+      ),
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_timeline_item_content-field_timeline_item_title'.
+  $field_instances['field_collection_item-field_timeline_item_content-field_timeline_item_title'] = array(
+    'bundle' => 'field_timeline_item_content',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_default',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'fences_wrapper' => 'div_div_div',
+    'field_name' => 'field_timeline_item_title',
+    'label' => 'Title',
+    'required' => 1,
+    'settings' => array(
+      'absolute_url' => 1,
+      'attributes' => array(
+        'class' => '',
+        'configurable_class' => 0,
+        'configurable_title' => 0,
+        'rel' => '',
+        'target' => 'default',
+        'title' => '',
+      ),
+      'display' => array(
+        'url_cutoff' => 80,
+      ),
+      'enable_tokens' => 1,
+      'linkit' => array(
+        'button_text' => 'Search',
+        'enable' => 1,
+        'profile' => 'express_linkit_field_profile',
+      ),
+      'rel_remove' => 'default',
+      'title' => 'required',
+      'title_label_use_field_label' => 1,
+      'title_maxlength' => 128,
+      'title_value' => '',
+      'url' => 'optional',
+      'user_register_form' => FALSE,
+      'validate_url' => 0,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'link',
+      'settings' => array(),
+      'type' => 'link_field',
+      'weight' => 1,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
-  t('Body');
-  t('Category');
-  t('Choose a category of timeline items to display.');
-  t('Choose how the timeline contents are populated. Auto is ideal for content such as deadlines, important dates, etc. It is recommended for large amounts of content within the timeline. Manual is  recommended for smaller amounts of content and is manually configured. Items can be placed in any order.');
-  t('Choose how timeline dates are grouped.  Days is recommended for shorter timelines (less than 2 years), while months or years are recommended for longer timelines.');
-  t('Content');
-  t('Date');
-  t('Date Display');
-  t('Date Range');
-  t('Enter a date for your timeline item. A date is required if you want this item to show up in an auto-populated timeline.');
-  t('Granularity');
+  t('Choose a display style for the timeline.');
   t('Image');
-  t('Item');
   t('Style');
+  t('Text');
+  t('Timeline Item Content');
+  t('Timeline Item Title');
+  t('Timeline Items');
+  t('Title');
 
   return $field_instances;
 }

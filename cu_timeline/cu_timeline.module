@@ -67,186 +67,86 @@ function cu_timeline_preprocess_entity(&$vars) {
     $output = '';
     $timeline = array();
     $style = $vars['field_timeline_style'][0]['value'];
+    // $style = 'horizontal';
     $vars['theme_hook_suggestions'][] = 'bean__timeline__' . $style;
 
-    $date_display = $vars['field_timeline_date_display'][0]['value'];
-    $view_mode = $vars['field_timeline_content_display'][0]['value'];
+    //dpm($vars);
 
-    $content = ($style == 'vertical') ? $vars['field_timeline_content'][0]['value'] : 'auto';
+    // Find all the field_collection_items.
+    if (empty($vars['content']['field_timeline_item'])) {
+      return array();
+    }
+    $children = element_children($vars['content']['field_timeline_item']);
+    $i = 0;
+    $column_count = 1;
+    $timeline_items = array_intersect_key($vars['content']['field_timeline_item'], element_children($vars['content']['field_timeline_item']));
 
-    if ($content == 'auto') {
-      $dates = array();
-      $today = date("Y-m-d H:i:s");
+    //dpm($timeline_items);
 
-      $query = db_select('node', 'n');
-      $query->condition('n.type', 'timeline_item', '=');
-      $query->condition('n.status', 1, '=');
-      $query->fields('n', array('nid', 'title'));
-      $query->join("field_data_field_timeline_date", "date", "n.nid = date.entity_id");
-      $query->fields('date', array('field_timeline_date_value'));
-      $query->isNotNull('field_timeline_date_value');
+    $timeline_content = array();
+    $dates = array();
+    $count = 0;
+    foreach ($timeline_items as $timeline_item) {
+      $content = array();
+      $item = array_pop($timeline_item['entity']['field_collection_item']);
 
-      // Check to see if date range set, otherwise show all events from today +
-      // If only one date was filled out, date values will be equal
-      if (isset($vars['elements']['#entity']->field_timeline_date_range[LANGUAGE_NONE])) {
-        $range = $vars['elements']['#entity']->field_timeline_date_range[LANGUAGE_NONE][0];
-        if (isset($range['value']) && isset($range['value2']) && ($range['value'] == $range['value2'])) {
-          $query->condition('date.field_timeline_date_value', $range['value'], '>=');
-        }
-        // If two unique dates, show between
-        else if (isset($range['value']) && isset($range['value2'])) {
-          $date_range[] = $range['value'];
-          $date_range[] = $range['value2'];
-          $query->condition('date.field_timeline_date_value', $date_range, 'BETWEEN');
-        }
+      // short title
+      $count++;
+      $index = str_pad($count, 4, "0", STR_PAD_LEFT);
+      $dates[$index] = $item['field_timeline_item_short_title']['#items'][0]['value'];
+      $content['data_date'] = $index;
+      $content['short_title'] = $item['field_timeline_item_short_title']['#items'][0]['value'];
+
+      $content['timeline_item_content'] = $item['field_timeline_item_content'];
+      /*
+      // Get title.
+      $content['title'] = $item['field_timeline_item_title']['#items'][0]['title'];
+
+
+      // Get text content.
+      if (!empty($item['field_timeline_item_text'])) {
+        $content['body'] = $item['field_timeline_item_text'][0]['#markup'];
       }
-      // No dates, show events >= today
-      else {
-        $query->condition('date.field_timeline_date_value', $today, '>=');
-      }
-      // Filter by category.
-      if (isset($vars['elements']['#entity']->field_timeline_category[LANGUAGE_NONE])) {
-        $terms = array();
-        foreach ($vars['elements']['#entity']->field_timeline_category[LANGUAGE_NONE] as $key => $value) {
-          $tid = $value['tid'];
-          $terms[$tid] = $tid;
-        }
-        $query->join("field_data_field_timeline_category", "cats", "n.nid = cats.entity_id");
-        $query->fields('cats', array('field_timeline_category_tid'));
-        $query->condition('cats.field_timeline_category_tid', $terms, 'in');
-      }
-
-      $query->distinct();
-      $query->groupBy('date.field_timeline_date_value');
-      $query->groupBy('n.nid');
-      // Display the newest first.
-      $query->orderBy('field_timeline_date_value', 'ASC');
-      $nids = $query->execute()->fetchCol();
-      $nodes = node_load_multiple($nids);
-
-      $grouped_output = array();
-
-      $granularity = array(
-        'day' => 'd/m/Y',
-        'month' => 'm/Y',
-        'year' => 'Y',
-      );
-      $granularity_display = array(
-        'day' => 'M j',
-        'month' => 'M Y',
-        'year' => 'Y',
-      );
-      $item_granularity_display = array(
-        'day' => 'F j, Y',
-        'month' => 'F Y',
-        'year' => 'Y',
-      );
-
-      $granularity_value = $vars['elements']['#entity']->field_timeline_granularity[LANGUAGE_NONE][0]['value'];
-
-      foreach ($nodes as $node) {
-        $date = $node->field_timeline_date[LANGUAGE_NONE][0]['value'];
-        $data_date = date($granularity[$granularity_value], strtotime($date)) . 'T' . date("H:i", strtotime($date));
-        $group_date = date($granularity[$granularity_value], strtotime($date)) . 'T:00:00:00';
-        $display_date = date($granularity_display[$granularity_value], strtotime($date));
-        $dates[$group_date] = array(
-          'date' => $display_date,
-          'nid' => $node->nid,
+      // Get Image
+      $size = 'large_wide_thumbnail';
+      if (isset($item['field_timeline_image']['#items'][0]['uri'])) {
+        // Get image uri.
+        $image_uri = $item['field_timeline_image']['#items'][0]['uri'];
+        $build = array(
+          '#theme' => 'image_style',
+          '#style_name' => $size,
+          '#path' => $image_uri,
+          '#alt' => $item['field_timeline_image']['#items'][0]['alt'],
         );
-        $grouped_output[$group_date]['#datetime'] = date($item_granularity_display[$granularity_value], strtotime($date));
-        if ($date_display != 'hidden') {
-          $node->timeline_display_date['date'] = date($item_granularity_display[$date_display], strtotime($date));
-        }
-        else {
-          $node->timeline_display_date['date'] = '';
-        }
-        $grouped_output[$group_date][$node->nid] = node_view($node, $view_mode);
+        $content['image'] = drupal_render($build);
+        $image_url = image_style_url($size, $image_uri);
 
       }
-      $vars['dates'] = $dates;
-      $output = array();
-      foreach ($grouped_output as $date => $group) {
-        if ($style == 'grid') {
-          $grouped_output[$date]['#prefix'] = '<li data-date="' . $date . '" class="timeline-single-item"><div class="group-date">' . $group['#datetime'] . '</div>';
-        }
-        else {
-          $grouped_output[$date]['#prefix'] = '<li data-date="' . $date . '" class="timeline-single-item">';
-        }
-        $grouped_output[$date]['#suffix'] = '</li>';
-        $display_date = date($granularity_display[$granularity_value], strtotime($date));
+
+      // Get URL.
+      if (!empty($item['field_timeline_item_title']['#items'][0]['url'])) {
+        $url = $item['field_timeline_item_title']['#items'][0]['url'];
+        $content['title'] = l($content['title'], $url);
+        $content['image'] = l($content['image'], $url, array('html' => TRUE));
       }
-      $timeline = $grouped_output;
+      */
+      $timeline_content[]['#markup'] = theme('timeline_item', array('content' => $content));
     }
-    // Manual timeline
-    else {
-      $items = array();
-      $dates = array();
-      $grouped_output = array();
-      $granularity = array(
-        'day' => 'd/m/Y',
-        'month' => 'm/Y',
-        'year' => 'Y',
-      );
-      $granularity_display = array(
-        'day' => 'M j',
-        'month' => 'M Y',
-        'year' => 'Y',
-      );
-      $item_granularity_display = array(
-        'day' => 'F j, Y',
-        'month' => 'F Y',
-        'year' => 'Y',
-      );
-      $item_count = 1;
-      foreach ($vars['field_timeline_content_item'] as $item) {
-        if ($date_display == 'visible') {
-          $id = $item['target_id'];
-          $entity = $item['entity'];
-          $date = $entity->field_timeline_date[LANGUAGE_NONE][0]['value'];
-          $data_date = date($granularity['day'], strtotime($date)) . 'T' . date("H:i", strtotime($date));
-          $group_date = date($granularity['day'], strtotime($date)) . 'T:00:00:00';
-          $display_date = date($granularity_display['day'], strtotime($date));
-          $dates[$group_date] = array(
-            'date' => $display_date,
-            'nid' => $entity->nid,
-          );
-        }
-        else {
-          $id = $item['target_id'];
-          $entity = $item['entity'];
-
-          $date = $entity->field_timeline_date[LANGUAGE_NONE][0]['value'];
-          $data_date = date($granularity['day'], strtotime($date)) . 'T' . date("H:i", strtotime($date));
-          $group_date = date($granularity['day'], strtotime($date)) . 'T:00:00:00';
-          $group_date = '00/00/' . str_pad($item_count, 4, '0', STR_PAD_LEFT) . 'T:00:00:00';
-
-          $display_date = date($granularity_display['day'], strtotime($date));
-          $dates[$group_date] = array(
-            'date' => '<span class="element-invisible">' . $entity->title . '</span>',
-            'nid' => $entity->nid,
-          );
-
-          $item_count++;
-        }
-
-
-
-        $entity->timeline_display_date['date'] = ($date_display == 'visible') ? date($item_granularity_display['day'], strtotime($date)) : NULL;
-
-        $grouped_output[$group_date][] = node_view($entity, $view_mode);
-      }
-
-
-      $vars['dates'] = $dates;
-      foreach ($grouped_output as $date => $group) {
-        $grouped_output[$date]['#prefix'] = '<li data-date="' . $date . '" class="timeline-single-item">';
-        $grouped_output[$date]['#suffix'] = '</li>';
-      }
-      $timeline = $grouped_output;
-    }
-    //$vars['content']['timeline_items'] = node_view_multiple($nodes, 'teaser');
-    $vars['content']['timeline_items'] = $timeline;
+    $vars['content']['timeline_items'] = $timeline_content;
+    $vars['dates'] = $dates;
   }
+}
+
+function cu_timeline_theme(&$existing, $type, $theme, $path) {
+  $registry = array();
+  $template_dir = drupal_get_path('module', 'cu_timeline') . '/templates';
+  $registry['timeline_item'] = array(
+    'template' => 'timeline-item',
+    'path' => $template_dir,
+    'render element' => 'elements',
+  );
+
+  return $registry;
 }
 
 function _cu_timeline_format_date($date, $granularity_value) {
@@ -392,72 +292,12 @@ function cu_timeline_view_all_title_callback($timeline = NULL) {
   }
 }
 function cu_timeline_view_all($timeline= NULL) {
+  $content = array();
   if ($timeline) {
-    $content = array();
-    $dates = array();
-    if ($timeline->field_timeline_content[LANGUAGE_NONE][0]['value'] == 'auto') {
-      $today = date("Y-m-d H:i:s");
-
-      $query = db_select('node', 'n');
-      $query->condition('n.type', 'timeline_item', '=');
-      $query->condition('n.status', 1, '=');
-      $query->fields('n', array('nid', 'title'));
-      $query->join("field_data_field_timeline_date", "date", "n.nid = date.entity_id");
-      $query->fields('date', array('field_timeline_date_value'));
-
-      // Check to see if date range set, otherwise show all events from today +
-      // If only one date was filled out, date values will be equal
-      if (isset($timeline->field_timeline_date_range[LANGUAGE_NONE])) {
-        $range = $timeline->field_timeline_date_range[LANGUAGE_NONE][0];
-        if (isset($range['value']) && isset($range['value2']) && ($range['value'] == $range['value2'])) {
-          $query->condition('date.field_timeline_date_value', $range['value'], '>=');
-        }
-        // If two unique dates, show between
-        else if (isset($range['value']) && isset($range['value2'])) {
-          $date_range[] = $range['value'];
-          $date_range[] = $range['value2'];
-          $query->condition('date.field_timeline_date_value', $date_range, 'BETWEEN');
-        }
-      }
-      // No dates, show events >= today
-      else {
-        $query->condition('date.field_timeline_date_value', $today, '>=');
-      }
-      // Filter by category.
-      if (isset($timeline->field_timeline_category[LANGUAGE_NONE])) {
-        $terms = array();
-        foreach ($timeline->field_timeline_category[LANGUAGE_NONE] as $key => $value) {
-          $tid = $value['tid'];
-          $terms[$tid] = $tid;
-        }
-        $query->join("field_data_field_timeline_category", "cats", "n.nid = cats.entity_id");
-        $query->fields('cats', array('field_timeline_category_tid'));
-        $query->condition('cats.field_timeline_category_tid', $terms, 'in');
-      }
-
-      $query->distinct();
-      $query->groupBy('n.nid');
-      // Display the newest first.
-      $query->orderBy('field_timeline_date_value', 'ASC');
-      $nids = $query->execute()->fetchCol();
-    }
-    else {
-      $nids = array();
-      foreach ($timeline->field_timeline_content_item[LANGUAGE_NONE] as $key => $value) {
-        $nids[$value['target_id']] = $value['target_id'];
-      }
-    }
-    $nodes = node_load_multiple($nids);
-    foreach ($nodes as $node) {
-      $date = $node->field_timeline_date[LANGUAGE_NONE][0]['value'];
-      $display_date = date("F j, Y", strtotime($date));
-
-      $node->timeline_display_date['date'] = $display_date;
-    }
-
-    $content['timeline_items'] = node_view_multiple($nodes, 'teaser');
-    $content['timeline_items']['#prefix'] = '<div class="timeline-view-all-wrapper">';
-    $content['timeline-items']['#suffix'] = '</div>';
+    $timeline->field_timeline_style[LANGUAGE_NONE][0]['value'] = 'vertical';
+    $content['timeline'] = bean_view($timeline);
+    $title = !empty($timeline->title) ? $timeline->title : 'View All Timeline Items';
+    drupal_set_title($title);
   }
   return $content;
 }

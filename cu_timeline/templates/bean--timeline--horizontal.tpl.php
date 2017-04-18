@@ -8,7 +8,7 @@
 				<ol>
           <?php
             foreach ($dates as $key => $date) {
-              print '<li><a href="#' . $key . '" data-date="' . $key . '">' . $date['date'] . '</a></li>';
+              print '<li><a href="#' . $key . '" data-date="' . $key . '">' . $date . '</a></li>';
             }
           ?>
 				</ol>
@@ -25,7 +25,18 @@
 
 	<div class="events-content">
 		<ol>
-			<?php print render($content['timeline_items']); ?>
+      <?php $count = 0; foreach ($content['timeline_items'] as $item): ?>
+        <?php
+        $count++;
+          $index = str_pad($count, 4, "0", STR_PAD_LEFT);
+          $data_date = $index;
+        ?>
+				<li class="timeline-single-item" data-date="<?php print $data_date; ?>">
+					<div class="timeline-item-wrapper">
+            <?php print render($item); ?>
+          </div>
+				</li>
+			<?php endforeach; ?>
 		</ol>
 	</div> <!-- .events-content -->
   <div class="cd-timeline-item-navigation-wrapper">
