@@ -1,0 +1,162 @@
+@import "../modules/_global.scss";
+
+.simple-horizontal-timeline-wrapper {
+  padding-bottom: 40px;
+  position: relative;
+  .timeline-list-link {
+    position: absolute;
+    left:0;
+    right:0;
+    bottom:0;
+  }
+}
+
+.cd-horizontal-timeline {
+  ol, ul, li {
+    margin:0;
+    padding:0;
+    list-style: none;
+    list-style-image: none;
+  }
+  padding-bottom: 20px;
+  .events a {
+    width: 120px;
+    padding-left: 5px;
+    padding-right:5px;
+  }
+  .short-title {
+    display: none;
+  }
+}
+
+.cd-horizontal-timeline .timeline-item-wrapper {
+  //padding:20px;
+}
+.cd-horizontal-timeline .timeline-item-wrapper:not(:first-child) {
+  padding-top: 0;
+}
+.cd-horizontal-timeline .timeline-item {
+  background-color: #fff;
+  margin:10px 0;
+  position: relative;
+  z-index: 5;
+  @include rgbashadow(0,0,20px,#000,.10);
+  @include shadowtransition;
+  img {
+    width:100%;
+    height: auto;
+    display: block;
+  }
+  &:hover {
+    @include rgbashadow(0,0,25px,#000,.3);
+  }
+  .timeline-item-content {
+    padding:20px;
+  }
+  h3 {
+    //font-size: 130%;
+  }
+  @media screen and (min-width:768px) {
+    h3 {
+      //font-size: 180%;
+    }
+  }
+}
+.timeline-item {
+  img {
+    width:100%;
+    height: auto;
+    display: block;
+  }
+  .timeline-item-date {
+    font-size: 85%;
+    margin-bottom: 10px;
+  }
+}
+
+.events li {
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.cd-timeline-view-all {
+  text-align: center;
+  font-size: 85%;
+  position: absolute;
+  bottom:20px;
+  left:0;
+  right:0;
+}
+
+.timeline-view-all-wrapper {
+  ol, li {
+    list-style: none;
+    list-style-image: none;
+    margin: 0;
+    padding: 0;
+  }
+  .timeline-item {
+    margin: 0 0 20px 0;
+    padding-bottom: 20px;
+    border-bottom:1px solid #d7d7d7;
+    img {
+      display: none;
+    }
+  }
+}
+body #mobile-navigation-wrapper {
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height:100vh;
+  width:100vw;
+  z-index: 10;
+  padding:0 20px 40px;
+  /* this fixes the buggy scrolling on webkit browsers - mobile devices only - when overflow property is applied */
+  -webkit-overflow-scrolling: touch;
+
+  #mobile-navigation {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  &:before {
+    content: "\f057";
+    font-family: 'FontAwesome';
+    position: fixed;
+    top:20px;
+    right:20px;
+    font-size:24px;
+    z-index: 11;
+  }
+  a {
+    text-align: center;
+  }
+}
+
+// Timeline item navigation
+.cd-timeline-item-navigation {
+  text-align: center;
+  font-size:200%;
+  li {
+    display: inline;
+  }
+  a {
+    display: inline-block;
+    padding:0 20px;
+  }
+}
+
+.no-touch .cd-timeline-item-navigation a:hover {
+  border-color: #7b9d6f;
+}
+.cd-timeline-item-navigation a.inactive {
+  cursor: not-allowed;
+  color:#aaa;
+}
+
+.no-touch .cd-timeline-item-navigation a.inactive:hover {
+  border-color: #dfdfdf;
+}
