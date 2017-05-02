@@ -1,6 +1,7 @@
 name = Timeline Bundle
 core = 7.x
-package = CU-Timeline-Bundle
-version = 7.x-1.0
+package = CU Timeline Bundle
+version = 7.x-1.0-beta-3
+project status url = https://github.com/CuBoulder/cu_timeline_bundle
 
-dependencies[] = cu_timeline
+dependencies[] = cu_advanced_timeline
