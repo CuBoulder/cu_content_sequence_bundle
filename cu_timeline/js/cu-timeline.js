@@ -33,14 +33,14 @@ jQuery(document).ready(function($){
       var distnew=0;
       var distprev=0;
       for (i = 0; i < timelineComponents['timelineDates'].length; i++) {
-      var distance = Math.abs(daydiff(timelineComponents['timelineDates'][0], timelineComponents['timelineDates'][i])),
-      distanceNorm = Math.round(distance / timelineComponents['eventsMinLapse']) + 2;
+        var distance = Math.abs(daydiff(timelineComponents['timelineDates'][0], timelineComponents['timelineDates'][i])),
+        distanceNorm = Math.round(distance / timelineComponents['eventsMinLapse']) + 2;
 
-      var spacing = timelineSpacing(timelineComponents['timelineDates'].length);
+        var spacing = timelineSpacing(timelineComponents['timelineDates'].length);
 
-      distnew = distprev + spacing;
-      timelineComponents['timelineEvents'].eq(i).css('left', distnew + 'px');
-      distprev = distnew;
+        distnew = distprev + spacing;
+        timelineComponents['timelineEvents'].eq(i).css('left', distnew + 'px');
+        distprev = distnew;
       }
 
 			//assign a width to the timeline
@@ -341,7 +341,7 @@ jQuery(document).ready(function($){
     var fragment = $(this).attr('href');
     var currentURL = window.location.href.split('#')[0];
     var newHREF = currentURL + fragment;
-    history.pushState('', document.title, newHREF);
+    //history.pushState('', document.title, newHREF);
   }
 
   function timelineSpacing(timelineLength) {
