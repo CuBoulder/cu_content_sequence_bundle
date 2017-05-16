@@ -186,7 +186,7 @@ function cu_content_sequence_theme(&$existing, $type, $theme, $path) {
   $registry = array();
   $template_dir = drupal_get_path('module', 'cu_content_sequence') . '/templates';
   $registry['content_sequence_item'] = array(
-    'template' => 'content_sequence-item',
+    'template' => 'content-sequence-item',
     'path' => $template_dir,
     'render element' => 'elements',
   );
