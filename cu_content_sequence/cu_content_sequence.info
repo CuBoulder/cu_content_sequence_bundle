@@ -1,7 +1,7 @@
 name = Content Sequence
 core = 7.x
 package = CU Timeline Bundle
-version = 7.x-1.0-beta-3
+version = 7.x-1.0
 dependencies[] = bean_admin_ui
 dependencies[] = ctools
 dependencies[] = date
