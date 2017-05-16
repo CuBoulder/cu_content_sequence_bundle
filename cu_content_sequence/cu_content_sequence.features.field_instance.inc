@@ -31,7 +31,7 @@ function cu_content_sequence_field_default_field_instances() {
     'entity_type' => 'bean',
     'fences_wrapper' => 'no_wrapper',
     'field_name' => 'field_cont_seq_content',
-    'label' => 'Timeline Content',
+    'label' => 'Sequence Content',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -203,8 +203,8 @@ function cu_content_sequence_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'bean-content_sequence-field_adv_tl_photos'.
-  $field_instances['bean-content_sequence-field_adv_tl_photos'] = array(
+  // Exported field_instance: 'bean-content_sequence-field_cont_seq_photos'.
+  $field_instances['bean-content_sequence-field_cont_seq_photos'] = array(
     'bundle' => 'content_sequence',
     'deleted' => 0,
     'description' => '',
@@ -222,7 +222,7 @@ function cu_content_sequence_field_default_field_instances() {
     ),
     'entity_type' => 'bean',
     'fences_wrapper' => 'div_div_div',
-    'field_name' => 'field_adv_tl_photos',
+    'field_name' => 'field_cont_seq_photos',
     'label' => 'Image',
     'required' => 0,
     'settings' => array(
@@ -316,8 +316,8 @@ function cu_content_sequence_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_cont_seq_content-field_adv_tl_body'.
-  $field_instances['field_collection_item-field_cont_seq_content-field_adv_tl_body'] = array(
+  // 'field_collection_item-field_cont_seq_content-field_cont_seq_body'.
+  $field_instances['field_collection_item-field_cont_seq_content-field_cont_seq_body'] = array(
     'bundle' => 'field_cont_seq_content',
     'default_value' => NULL,
     'deleted' => 0,
@@ -333,7 +333,7 @@ function cu_content_sequence_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'fences_wrapper' => 'no_wrapper',
-    'field_name' => 'field_adv_tl_body',
+    'field_name' => 'field_cont_seq_body',
     'label' => 'Body',
     'required' => 0,
     'settings' => array(
@@ -357,8 +357,8 @@ function cu_content_sequence_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_cont_seq_content-field_adv_tl_date'.
-  $field_instances['field_collection_item-field_cont_seq_content-field_adv_tl_date'] = array(
+  // 'field_collection_item-field_cont_seq_content-field_cont_seq_date'.
+  $field_instances['field_collection_item-field_cont_seq_content-field_cont_seq_date'] = array(
     'bundle' => 'field_cont_seq_content',
     'deleted' => 0,
     'description' => '',
@@ -380,7 +380,7 @@ function cu_content_sequence_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'fences_wrapper' => 'no_wrapper',
-    'field_name' => 'field_adv_tl_date',
+    'field_name' => 'field_cont_seq_date',
     'label' => 'Start Date',
     'required' => 0,
     'settings' => array(
@@ -408,8 +408,8 @@ function cu_content_sequence_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_cont_seq_content-field_adv_tl_display_date'.
-  $field_instances['field_collection_item-field_cont_seq_content-field_adv_tl_display_date'] = array(
+  // 'field_collection_item-field_cont_seq_content-field_cont_seq_display_date'.
+  $field_instances['field_collection_item-field_cont_seq_content-field_cont_seq_display_date'] = array(
     'bundle' => 'field_cont_seq_content',
     'default_value' => NULL,
     'deleted' => 0,
@@ -425,7 +425,7 @@ function cu_content_sequence_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'fences_wrapper' => 'div_div_div',
-    'field_name' => 'field_adv_tl_display_date',
+    'field_name' => 'field_cont_seq_display_date',
     'label' => 'Display Date',
     'required' => 0,
     'settings' => array(
@@ -449,8 +449,8 @@ function cu_content_sequence_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_cont_seq_content-field_adv_tl_display_end_date'.
-  $field_instances['field_collection_item-field_cont_seq_content-field_adv_tl_display_end_date'] = array(
+  // 'field_collection_item-field_cont_seq_content-field_cont_seq_display_end_date'.
+  $field_instances['field_collection_item-field_cont_seq_content-field_cont_seq_display_end_date'] = array(
     'bundle' => 'field_cont_seq_content',
     'default_value' => NULL,
     'deleted' => 0,
@@ -466,7 +466,7 @@ function cu_content_sequence_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'fences_wrapper' => 'no_wrapper',
-    'field_name' => 'field_adv_tl_display_end_date',
+    'field_name' => 'field_cont_seq_display_end_date',
     'label' => 'Display End Date',
     'required' => 0,
     'settings' => array(
@@ -490,8 +490,8 @@ function cu_content_sequence_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_cont_seq_content-field_adv_tl_end_date'.
-  $field_instances['field_collection_item-field_cont_seq_content-field_adv_tl_end_date'] = array(
+  // 'field_collection_item-field_cont_seq_content-field_cont_seq_end_date'.
+  $field_instances['field_collection_item-field_cont_seq_content-field_cont_seq_end_date'] = array(
     'bundle' => 'field_cont_seq_content',
     'deleted' => 0,
     'description' => '',
@@ -513,7 +513,7 @@ function cu_content_sequence_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'fences_wrapper' => 'div_div_div',
-    'field_name' => 'field_adv_tl_end_date',
+    'field_name' => 'field_cont_seq_end_date',
     'label' => 'End Date',
     'required' => 0,
     'settings' => array(
@@ -541,8 +541,8 @@ function cu_content_sequence_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_cont_seq_content-field_adv_tl_group'.
-  $field_instances['field_collection_item-field_cont_seq_content-field_adv_tl_group'] = array(
+  // 'field_collection_item-field_cont_seq_content-field_cont_seq_group'.
+  $field_instances['field_collection_item-field_cont_seq_content-field_cont_seq_group'] = array(
     'bundle' => 'field_cont_seq_content',
     'default_value' => NULL,
     'deleted' => 0,
@@ -558,7 +558,7 @@ function cu_content_sequence_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'fences_wrapper' => 'no_wrapper',
-    'field_name' => 'field_adv_tl_group',
+    'field_name' => 'field_cont_seq_group',
     'label' => 'Group',
     'required' => 0,
     'settings' => array(
@@ -582,8 +582,8 @@ function cu_content_sequence_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_cont_seq_content-field_adv_tl_photos'.
-  $field_instances['field_collection_item-field_cont_seq_content-field_adv_tl_photos'] = array(
+  // 'field_collection_item-field_cont_seq_content-field_cont_seq_photos'.
+  $field_instances['field_collection_item-field_cont_seq_content-field_cont_seq_photos'] = array(
     'bundle' => 'field_cont_seq_content',
     'deleted' => 0,
     'description' => '',
@@ -601,7 +601,7 @@ function cu_content_sequence_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'fences_wrapper' => 'div_div_div',
-    'field_name' => 'field_adv_tl_photos',
+    'field_name' => 'field_cont_seq_photos',
     'label' => 'Image',
     'required' => 0,
     'settings' => array(
@@ -695,8 +695,8 @@ function cu_content_sequence_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_cont_seq_content-field_adv_tl_title'.
-  $field_instances['field_collection_item-field_cont_seq_content-field_adv_tl_title'] = array(
+  // 'field_collection_item-field_cont_seq_content-field_cont_seq_title'.
+  $field_instances['field_collection_item-field_cont_seq_content-field_cont_seq_title'] = array(
     'bundle' => 'field_cont_seq_content',
     'default_value' => NULL,
     'deleted' => 0,
@@ -712,7 +712,7 @@ function cu_content_sequence_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'fences_wrapper' => 'no_wrapper',
-    'field_name' => 'field_adv_tl_title',
+    'field_name' => 'field_cont_seq_title',
     'label' => 'Title',
     'required' => 1,
     'settings' => array(
@@ -753,8 +753,8 @@ function cu_content_sequence_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_cont_seq_content-field_adv_tl_video'.
-  $field_instances['field_collection_item-field_cont_seq_content-field_adv_tl_video'] = array(
+  // 'field_collection_item-field_cont_seq_content-field_cont_seq_video'.
+  $field_instances['field_collection_item-field_cont_seq_content-field_cont_seq_video'] = array(
     'bundle' => 'field_cont_seq_content',
     'default_value' => NULL,
     'deleted' => 0,
@@ -774,7 +774,7 @@ function cu_content_sequence_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'fences_wrapper' => 'div_div_div',
-    'field_name' => 'field_adv_tl_video',
+    'field_name' => 'field_cont_seq_video',
     'label' => 'Video',
     'required' => 0,
     'settings' => array(
