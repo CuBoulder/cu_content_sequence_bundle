@@ -1,22 +1,22 @@
 <?php
 /**
  * @file
- * cu_advanced_timeline.features.field_base.inc
+ * cu_content_sequence.features.field_base.inc
  */
 
 /**
  * Implements hook_field_default_field_bases().
  */
-function cu_advanced_timeline_field_default_field_bases() {
+function cu_content_sequence_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_adv_timeline_content'.
-  $field_bases['field_adv_timeline_content'] = array(
+  // Exported field_base: 'field_cont_seq_content'.
+  $field_bases['field_cont_seq_content'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_adv_timeline_content',
+    'field_name' => 'field_cont_seq_content',
     'indexes' => array(
       'revision_id' => array(
         0 => 'revision_id',
@@ -36,13 +36,13 @@ function cu_advanced_timeline_field_default_field_bases() {
     'type' => 'field_collection',
   );
 
-  // Exported field_base: 'field_adv_timeline_description'.
-  $field_bases['field_adv_timeline_description'] = array(
+  // Exported field_base: 'field_cont_seq_description'.
+  $field_bases['field_cont_seq_description'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_adv_timeline_description',
+    'field_name' => 'field_cont_seq_description',
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -55,13 +55,13 @@ function cu_advanced_timeline_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_adv_timeline_display'.
-  $field_bases['field_adv_timeline_display'] = array(
+  // Exported field_base: 'field_cont_seq_display'.
+  $field_bases['field_cont_seq_display'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_adv_timeline_display',
+    'field_name' => 'field_cont_seq_display',
     'indexes' => array(
       'value' => array(
         0 => 'value',
@@ -71,20 +71,20 @@ function cu_advanced_timeline_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(),
-      'allowed_values_function' => 'cu_advanced_timeline_display_options',
+      'allowed_values_function' => 'cu_content_sequence_display_options',
       'allowed_values_php' => '',
     ),
     'translatable' => 0,
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_adv_timeline_scale'.
-  $field_bases['field_adv_timeline_scale'] = array(
+  // Exported field_base: 'field_cont_seq_scale'.
+  $field_bases['field_cont_seq_scale'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_adv_timeline_scale',
+    'field_name' => 'field_cont_seq_scale',
     'indexes' => array(
       'value' => array(
         0 => 'value',
@@ -94,20 +94,20 @@ function cu_advanced_timeline_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(),
-      'allowed_values_function' => 'cu_advanced_timeline_scale_options',
+      'allowed_values_function' => 'cu_content_sequence_scale_options',
       'allowed_values_php' => '',
     ),
     'translatable' => 0,
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_adv_timeline_title'.
-  $field_bases['field_adv_timeline_title'] = array(
+  // Exported field_base: 'field_cont_seq_title'.
+  $field_bases['field_cont_seq_title'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_adv_timeline_title',
+    'field_name' => 'field_cont_seq_title',
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -122,13 +122,13 @@ function cu_advanced_timeline_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_adv_tl_body'.
-  $field_bases['field_adv_tl_body'] = array(
+  // Exported field_base: 'field_cont_seq_body'.
+  $field_bases['field_cont_seq_body'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_adv_tl_body',
+    'field_name' => 'field_cont_seq_body',
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -141,13 +141,13 @@ function cu_advanced_timeline_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_adv_tl_date'.
-  $field_bases['field_adv_tl_date'] = array(
+  // Exported field_base: 'field_cont_seq_date'.
+  $field_bases['field_cont_seq_date'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_adv_tl_date',
+    'field_name' => 'field_cont_seq_date',
     'indexes' => array(),
     'locked' => 0,
     'module' => 'date',
@@ -170,13 +170,13 @@ function cu_advanced_timeline_field_default_field_bases() {
     'type' => 'datetime',
   );
 
-  // Exported field_base: 'field_adv_tl_display_date'.
-  $field_bases['field_adv_tl_display_date'] = array(
+  // Exported field_base: 'field_cont_seq_display_date'.
+  $field_bases['field_cont_seq_display_date'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_adv_tl_display_date',
+    'field_name' => 'field_cont_seq_display_date',
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -191,13 +191,13 @@ function cu_advanced_timeline_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_adv_tl_display_end_date'.
-  $field_bases['field_adv_tl_display_end_date'] = array(
+  // Exported field_base: 'field_cont_seq_display_end_date'.
+  $field_bases['field_cont_seq_display_end_date'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_adv_tl_display_end_date',
+    'field_name' => 'field_cont_seq_display_end_date',
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -212,13 +212,13 @@ function cu_advanced_timeline_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_adv_tl_end_date'.
-  $field_bases['field_adv_tl_end_date'] = array(
+  // Exported field_base: 'field_cont_seq_end_date'.
+  $field_bases['field_cont_seq_end_date'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_adv_tl_end_date',
+    'field_name' => 'field_cont_seq_end_date',
     'indexes' => array(),
     'locked' => 0,
     'module' => 'date',
@@ -241,13 +241,13 @@ function cu_advanced_timeline_field_default_field_bases() {
     'type' => 'datetime',
   );
 
-  // Exported field_base: 'field_adv_tl_group'.
-  $field_bases['field_adv_tl_group'] = array(
+  // Exported field_base: 'field_cont_seq_group'.
+  $field_bases['field_cont_seq_group'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_adv_tl_group',
+    'field_name' => 'field_cont_seq_group',
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -262,13 +262,13 @@ function cu_advanced_timeline_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_adv_tl_photos'.
-  $field_bases['field_adv_tl_photos'] = array(
+  // Exported field_base: 'field_cont_seq_photos'.
+  $field_bases['field_cont_seq_photos'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_adv_tl_photos',
+    'field_name' => 'field_cont_seq_photos',
     'indexes' => array(
       'fid' => array(
         0 => 'fid',
@@ -284,13 +284,13 @@ function cu_advanced_timeline_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_adv_tl_title'.
-  $field_bases['field_adv_tl_title'] = array(
+  // Exported field_base: 'field_cont_seq_title'.
+  $field_bases['field_cont_seq_title'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_adv_tl_title',
+    'field_name' => 'field_cont_seq_title',
     'indexes' => array(),
     'locked' => 0,
     'module' => 'link',
@@ -313,13 +313,13 @@ function cu_advanced_timeline_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_adv_tl_video'.
-  $field_bases['field_adv_tl_video'] = array(
+  // Exported field_base: 'field_cont_seq_video'.
+  $field_bases['field_cont_seq_video'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_adv_tl_video',
+    'field_name' => 'field_cont_seq_video',
     'indexes' => array(),
     'locked' => 0,
     'module' => 'video_embed_field',

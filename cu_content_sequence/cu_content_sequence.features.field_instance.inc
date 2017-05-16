@@ -1,19 +1,19 @@
 <?php
 /**
  * @file
- * cu_advanced_timeline.features.field_instance.inc
+ * cu_content_sequence.features.field_instance.inc
  */
 
 /**
  * Implements hook_field_default_field_instances().
  */
-function cu_advanced_timeline_field_default_field_instances() {
+function cu_content_sequence_field_default_field_instances() {
   $field_instances = array();
 
   // Exported field_instance:
-  // 'bean-advanced_timeline-field_adv_timeline_content'.
-  $field_instances['bean-advanced_timeline-field_adv_timeline_content'] = array(
-    'bundle' => 'advanced_timeline',
+  // 'bean-content_sequence-field_cont_seq_content'.
+  $field_instances['bean-content_sequence-field_cont_seq_content'] = array(
+    'bundle' => 'content_sequence',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -30,8 +30,8 @@ function cu_advanced_timeline_field_default_field_instances() {
     ),
     'entity_type' => 'bean',
     'fences_wrapper' => 'no_wrapper',
-    'field_name' => 'field_adv_timeline_content',
-    'label' => 'Timeline Content',
+    'field_name' => 'field_cont_seq_content',
+    'label' => 'Sequence Content',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -46,9 +46,9 @@ function cu_advanced_timeline_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'bean-advanced_timeline-field_adv_timeline_description'.
-  $field_instances['bean-advanced_timeline-field_adv_timeline_description'] = array(
-    'bundle' => 'advanced_timeline',
+  // 'bean-content_sequence-field_cont_seq_description'.
+  $field_instances['bean-content_sequence-field_cont_seq_description'] = array(
+    'bundle' => 'content_sequence',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -63,7 +63,7 @@ function cu_advanced_timeline_field_default_field_instances() {
     ),
     'entity_type' => 'bean',
     'fences_wrapper' => 'no_wrapper',
-    'field_name' => 'field_adv_timeline_description',
+    'field_name' => 'field_cont_seq_description',
     'label' => 'Description',
     'required' => 0,
     'settings' => array(
@@ -87,9 +87,9 @@ function cu_advanced_timeline_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'bean-advanced_timeline-field_adv_timeline_display'.
-  $field_instances['bean-advanced_timeline-field_adv_timeline_display'] = array(
-    'bundle' => 'advanced_timeline',
+  // 'bean-content_sequence-field_cont_seq_display'.
+  $field_instances['bean-content_sequence-field_cont_seq_display'] = array(
+    'bundle' => 'content_sequence',
     'default_value' => array(
       0 => array(
         'value' => 'advanced',
@@ -110,7 +110,7 @@ function cu_advanced_timeline_field_default_field_instances() {
     ),
     'entity_type' => 'bean',
     'fences_wrapper' => 'no_wrapper',
-    'field_name' => 'field_adv_timeline_display',
+    'field_name' => 'field_cont_seq_display',
     'label' => 'Display',
     'required' => 1,
     'settings' => array(
@@ -125,9 +125,9 @@ function cu_advanced_timeline_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'bean-advanced_timeline-field_adv_timeline_scale'.
-  $field_instances['bean-advanced_timeline-field_adv_timeline_scale'] = array(
-    'bundle' => 'advanced_timeline',
+  // Exported field_instance: 'bean-content_sequence-field_cont_seq_scale'.
+  $field_instances['bean-content_sequence-field_cont_seq_scale'] = array(
+    'bundle' => 'content_sequence',
     'default_value' => array(
       0 => array(
         'value' => 2,
@@ -148,7 +148,7 @@ function cu_advanced_timeline_field_default_field_instances() {
     ),
     'entity_type' => 'bean',
     'fences_wrapper' => 'no_wrapper',
-    'field_name' => 'field_adv_timeline_scale',
+    'field_name' => 'field_cont_seq_scale',
     'label' => 'Scale',
     'required' => 1,
     'settings' => array(
@@ -163,9 +163,9 @@ function cu_advanced_timeline_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'bean-advanced_timeline-field_adv_timeline_title'.
-  $field_instances['bean-advanced_timeline-field_adv_timeline_title'] = array(
-    'bundle' => 'advanced_timeline',
+  // Exported field_instance: 'bean-content_sequence-field_cont_seq_title'.
+  $field_instances['bean-content_sequence-field_cont_seq_title'] = array(
+    'bundle' => 'content_sequence',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -180,7 +180,7 @@ function cu_advanced_timeline_field_default_field_instances() {
     ),
     'entity_type' => 'bean',
     'fences_wrapper' => 'no_wrapper',
-    'field_name' => 'field_adv_timeline_title',
+    'field_name' => 'field_cont_seq_title',
     'label' => 'Title',
     'required' => 0,
     'settings' => array(
@@ -203,9 +203,9 @@ function cu_advanced_timeline_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'bean-advanced_timeline-field_adv_tl_photos'.
-  $field_instances['bean-advanced_timeline-field_adv_tl_photos'] = array(
-    'bundle' => 'advanced_timeline',
+  // Exported field_instance: 'bean-content_sequence-field_cont_seq_photos'.
+  $field_instances['bean-content_sequence-field_cont_seq_photos'] = array(
+    'bundle' => 'content_sequence',
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -222,7 +222,7 @@ function cu_advanced_timeline_field_default_field_instances() {
     ),
     'entity_type' => 'bean',
     'fences_wrapper' => 'div_div_div',
-    'field_name' => 'field_adv_tl_photos',
+    'field_name' => 'field_cont_seq_photos',
     'label' => 'Image',
     'required' => 0,
     'settings' => array(
@@ -316,9 +316,9 @@ function cu_advanced_timeline_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_adv_timeline_content-field_adv_tl_body'.
-  $field_instances['field_collection_item-field_adv_timeline_content-field_adv_tl_body'] = array(
-    'bundle' => 'field_adv_timeline_content',
+  // 'field_collection_item-field_cont_seq_content-field_cont_seq_body'.
+  $field_instances['field_collection_item-field_cont_seq_content-field_cont_seq_body'] = array(
+    'bundle' => 'field_cont_seq_content',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -333,7 +333,7 @@ function cu_advanced_timeline_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'fences_wrapper' => 'no_wrapper',
-    'field_name' => 'field_adv_tl_body',
+    'field_name' => 'field_cont_seq_body',
     'label' => 'Body',
     'required' => 0,
     'settings' => array(
@@ -357,9 +357,9 @@ function cu_advanced_timeline_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_adv_timeline_content-field_adv_tl_date'.
-  $field_instances['field_collection_item-field_adv_timeline_content-field_adv_tl_date'] = array(
-    'bundle' => 'field_adv_timeline_content',
+  // 'field_collection_item-field_cont_seq_content-field_cont_seq_date'.
+  $field_instances['field_collection_item-field_cont_seq_content-field_cont_seq_date'] = array(
+    'bundle' => 'field_cont_seq_content',
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -380,7 +380,7 @@ function cu_advanced_timeline_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'fences_wrapper' => 'no_wrapper',
-    'field_name' => 'field_adv_tl_date',
+    'field_name' => 'field_cont_seq_date',
     'label' => 'Start Date',
     'required' => 0,
     'settings' => array(
@@ -408,9 +408,9 @@ function cu_advanced_timeline_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_adv_timeline_content-field_adv_tl_display_date'.
-  $field_instances['field_collection_item-field_adv_timeline_content-field_adv_tl_display_date'] = array(
-    'bundle' => 'field_adv_timeline_content',
+  // 'field_collection_item-field_cont_seq_content-field_cont_seq_display_date'.
+  $field_instances['field_collection_item-field_cont_seq_content-field_cont_seq_display_date'] = array(
+    'bundle' => 'field_cont_seq_content',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -425,7 +425,7 @@ function cu_advanced_timeline_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'fences_wrapper' => 'div_div_div',
-    'field_name' => 'field_adv_tl_display_date',
+    'field_name' => 'field_cont_seq_display_date',
     'label' => 'Display Date',
     'required' => 0,
     'settings' => array(
@@ -449,9 +449,9 @@ function cu_advanced_timeline_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_adv_timeline_content-field_adv_tl_display_end_date'.
-  $field_instances['field_collection_item-field_adv_timeline_content-field_adv_tl_display_end_date'] = array(
-    'bundle' => 'field_adv_timeline_content',
+  // 'field_collection_item-field_cont_seq_content-field_cont_seq_display_end_date'.
+  $field_instances['field_collection_item-field_cont_seq_content-field_cont_seq_display_end_date'] = array(
+    'bundle' => 'field_cont_seq_content',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -466,7 +466,7 @@ function cu_advanced_timeline_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'fences_wrapper' => 'no_wrapper',
-    'field_name' => 'field_adv_tl_display_end_date',
+    'field_name' => 'field_cont_seq_display_end_date',
     'label' => 'Display End Date',
     'required' => 0,
     'settings' => array(
@@ -490,9 +490,9 @@ function cu_advanced_timeline_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_adv_timeline_content-field_adv_tl_end_date'.
-  $field_instances['field_collection_item-field_adv_timeline_content-field_adv_tl_end_date'] = array(
-    'bundle' => 'field_adv_timeline_content',
+  // 'field_collection_item-field_cont_seq_content-field_cont_seq_end_date'.
+  $field_instances['field_collection_item-field_cont_seq_content-field_cont_seq_end_date'] = array(
+    'bundle' => 'field_cont_seq_content',
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -513,7 +513,7 @@ function cu_advanced_timeline_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'fences_wrapper' => 'div_div_div',
-    'field_name' => 'field_adv_tl_end_date',
+    'field_name' => 'field_cont_seq_end_date',
     'label' => 'End Date',
     'required' => 0,
     'settings' => array(
@@ -541,9 +541,9 @@ function cu_advanced_timeline_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_adv_timeline_content-field_adv_tl_group'.
-  $field_instances['field_collection_item-field_adv_timeline_content-field_adv_tl_group'] = array(
-    'bundle' => 'field_adv_timeline_content',
+  // 'field_collection_item-field_cont_seq_content-field_cont_seq_group'.
+  $field_instances['field_collection_item-field_cont_seq_content-field_cont_seq_group'] = array(
+    'bundle' => 'field_cont_seq_content',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -558,7 +558,7 @@ function cu_advanced_timeline_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'fences_wrapper' => 'no_wrapper',
-    'field_name' => 'field_adv_tl_group',
+    'field_name' => 'field_cont_seq_group',
     'label' => 'Group',
     'required' => 0,
     'settings' => array(
@@ -582,9 +582,9 @@ function cu_advanced_timeline_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_adv_timeline_content-field_adv_tl_photos'.
-  $field_instances['field_collection_item-field_adv_timeline_content-field_adv_tl_photos'] = array(
-    'bundle' => 'field_adv_timeline_content',
+  // 'field_collection_item-field_cont_seq_content-field_cont_seq_photos'.
+  $field_instances['field_collection_item-field_cont_seq_content-field_cont_seq_photos'] = array(
+    'bundle' => 'field_cont_seq_content',
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -601,7 +601,7 @@ function cu_advanced_timeline_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'fences_wrapper' => 'div_div_div',
-    'field_name' => 'field_adv_tl_photos',
+    'field_name' => 'field_cont_seq_photos',
     'label' => 'Image',
     'required' => 0,
     'settings' => array(
@@ -695,9 +695,9 @@ function cu_advanced_timeline_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_adv_timeline_content-field_adv_tl_title'.
-  $field_instances['field_collection_item-field_adv_timeline_content-field_adv_tl_title'] = array(
-    'bundle' => 'field_adv_timeline_content',
+  // 'field_collection_item-field_cont_seq_content-field_cont_seq_title'.
+  $field_instances['field_collection_item-field_cont_seq_content-field_cont_seq_title'] = array(
+    'bundle' => 'field_cont_seq_content',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -712,7 +712,7 @@ function cu_advanced_timeline_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'fences_wrapper' => 'no_wrapper',
-    'field_name' => 'field_adv_tl_title',
+    'field_name' => 'field_cont_seq_title',
     'label' => 'Title',
     'required' => 1,
     'settings' => array(
@@ -753,9 +753,9 @@ function cu_advanced_timeline_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_adv_timeline_content-field_adv_tl_video'.
-  $field_instances['field_collection_item-field_adv_timeline_content-field_adv_tl_video'] = array(
-    'bundle' => 'field_adv_timeline_content',
+  // 'field_collection_item-field_cont_seq_content-field_cont_seq_video'.
+  $field_instances['field_collection_item-field_cont_seq_content-field_cont_seq_video'] = array(
+    'bundle' => 'field_cont_seq_content',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => 'Enter the url of a Vimeo or YouTube video.',
@@ -774,7 +774,7 @@ function cu_advanced_timeline_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'fences_wrapper' => 'div_div_div',
-    'field_name' => 'field_adv_tl_video',
+    'field_name' => 'field_cont_seq_video',
     'label' => 'Video',
     'required' => 0,
     'settings' => array(
