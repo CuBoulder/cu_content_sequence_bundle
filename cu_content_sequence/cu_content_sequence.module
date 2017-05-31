@@ -148,7 +148,7 @@ function cu_content_sequence_preprocess_entity(&$vars) {
       $vars['timeline_title'] = $vars['field_cont_seq_title'][0]['value'];
     }
     if (!empty($vars['field_cont_seq_description'])) {
-      $data['title']['text']['text'] = $vars['field_cont_seq_description'][0]['value'];
+      $data['title']['text']['text'] = render($vars['content']['field_cont_seq_description']);
     }
     if (!empty($vars['field_cont_seq_photos'])) {
       $data['title']['media'] = array(
