@@ -1,8 +1,25 @@
 @import "../modules/_global.scss";
-
+body {
+  .block-inner .content .simple-horizontal-timeline-wrapper  {
+    a:link, a:visited {
+      color: $blue;
+    }
+    a:hover {
+      color: $red;
+    }
+    .cd-horizontal-timeline .events a {
+      color:#383838;
+    }
+    .timeline-content {
+      color: #202020;
+    }
+  }
+}
 .simple-horizontal-timeline-wrapper {
+  background: #fff;
   padding-bottom: 40px;
   position: relative;
+
   .timeline-list-link {
     position: absolute;
     left:0;
