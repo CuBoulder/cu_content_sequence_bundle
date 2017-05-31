@@ -89,7 +89,7 @@ function cu_content_sequence_preprocess_entity(&$vars) {
       // Add text to data.
       $events[$key]['text'] = array(
         'headline' => render($child['field_cont_seq_title']),
-        'text' => $child['field_cont_seq_body'][0]['#markup'],
+        'text' => !empty($child['field_cont_seq_body']) ? $child['field_cont_seq_body'][0]['#markup'] : '',
       );
       // Add group to data.
       if (!empty($child['field_cont_seq_group'])) {
@@ -143,12 +143,12 @@ function cu_content_sequence_preprocess_entity(&$vars) {
     );
 
     // Add timeline title/description/photo.
-    if (!empty($vars['field_cont_seq_title'])) {
-      $data['title']['text']['headline'] = $vars['field_cont_seq_title'][0]['value'];
-      $vars['timeline_title'] = $vars['field_cont_seq_title'][0]['value'];
+    if (!empty($vars['field_cont_sequence_title'])) {
+      $data['title']['text']['headline'] = $vars['field_cont_sequence_title'][0]['value'];
+      $vars['timeline_title'] = $vars['field_cont_sequence_title'][0]['value'];
     }
     if (!empty($vars['field_cont_seq_description'])) {
-      $data['title']['text']['text'] = $vars['field_cont_seq_description'][0]['value'];
+      $data['title']['text']['text'] = render($vars['content']['field_cont_seq_description']);
     }
     if (!empty($vars['field_cont_seq_photos'])) {
       $data['title']['media'] = array(
@@ -222,7 +222,7 @@ function cu_content_sequence_field_widget_form_alter(&$element, &$form_state, $c
  * Add validation function.
  */
 function cu_content_sequence_form_bean_form_alter(&$form, &$form_state, $form_id) {
-  if ($form['#bundle'] == 'content_sequence') {
+  if ($form['bean']['#value']->type == 'content_sequence') {
     $form['title']['#access'] = FALSE;
     $form['#validate'][] = 'cu_content_sequence_validate';
   }

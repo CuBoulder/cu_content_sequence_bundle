@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * cu_advanced_timeline.bean.inc
+ * cu_content_sequence.bean.inc
  */
 
 /**

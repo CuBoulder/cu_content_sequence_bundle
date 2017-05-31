@@ -39,7 +39,12 @@ h3.timeline-item-title, h4.timeline-item-title { font-size: 150%; }
 
 .timeline-list-link { padding: 20px; text-align: center; }
 
-.simple-horizontal-timeline-wrapper { padding-bottom: 40px; position: relative; }
+body .block-inner .content .simple-horizontal-timeline-wrapper a:link, body .block-inner .content .simple-horizontal-timeline-wrapper a:visited { color: #007bc8; }
+body .block-inner .content .simple-horizontal-timeline-wrapper a:hover { color: #e51c23; }
+body .block-inner .content .simple-horizontal-timeline-wrapper .cd-horizontal-timeline .events a { color: #383838; }
+body .block-inner .content .simple-horizontal-timeline-wrapper .timeline-content { color: #202020; }
+
+.simple-horizontal-timeline-wrapper { background: #fff; padding-bottom: 40px; position: relative; }
 .simple-horizontal-timeline-wrapper .timeline-list-link { position: absolute; left: 0; right: 0; bottom: 0; }
 
 .cd-horizontal-timeline { padding-bottom: 20px; }

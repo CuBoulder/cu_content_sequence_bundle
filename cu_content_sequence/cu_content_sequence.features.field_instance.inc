@@ -10,8 +10,7 @@
 function cu_content_sequence_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance:
-  // 'bean-content_sequence-field_cont_seq_content'.
+  // Exported field_instance: 'bean-content_sequence-field_cont_seq_content'.
   $field_instances['bean-content_sequence-field_cont_seq_content'] = array(
     'bundle' => 'content_sequence',
     'default_value' => NULL,
@@ -25,7 +24,7 @@ function cu_content_sequence_field_default_field_instances() {
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_fields',
-        'weight' => 0,
+        'weight' => 1,
       ),
     ),
     'entity_type' => 'bean',
@@ -41,7 +40,7 @@ function cu_content_sequence_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 5,
+      'weight' => 6,
     ),
   );
 
@@ -58,7 +57,7 @@ function cu_content_sequence_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 2,
+        'weight' => 3,
       ),
     ),
     'entity_type' => 'bean',
@@ -86,8 +85,7 @@ function cu_content_sequence_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance:
-  // 'bean-content_sequence-field_cont_seq_display'.
+  // Exported field_instance: 'bean-content_sequence-field_cont_seq_display'.
   $field_instances['bean-content_sequence-field_cont_seq_display'] = array(
     'bundle' => 'content_sequence',
     'default_value' => array(
@@ -105,7 +103,7 @@ function cu_content_sequence_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 1,
+        'weight' => 2,
       ),
     ),
     'entity_type' => 'bean',
@@ -121,85 +119,7 @@ function cu_content_sequence_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 3,
-    ),
-  );
-
-  // Exported field_instance: 'bean-content_sequence-field_cont_seq_scale'.
-  $field_instances['bean-content_sequence-field_cont_seq_scale'] = array(
-    'bundle' => 'content_sequence',
-    'default_value' => array(
-      0 => array(
-        'value' => 2,
-      ),
-    ),
-    'default_value_function' => '',
-    'default_value_php' => '',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 4,
-      ),
-    ),
-    'entity_type' => 'bean',
-    'fences_wrapper' => 'no_wrapper',
-    'field_name' => 'field_cont_seq_scale',
-    'label' => 'Scale',
-    'required' => 1,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 9,
-    ),
-  );
-
-  // Exported field_instance: 'bean-content_sequence-field_cont_seq_title'.
-  $field_instances['bean-content_sequence-field_cont_seq_title'] = array(
-    'bundle' => 'content_sequence',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 3,
-      ),
-    ),
-    'entity_type' => 'bean',
-    'fences_wrapper' => 'no_wrapper',
-    'field_name' => 'field_cont_seq_title',
-    'label' => 'Title',
-    'required' => 0,
-    'settings' => array(
-      'linkit' => array(
-        'button_text' => 'Search',
-        'enable' => 0,
-        'profile' => '',
-      ),
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 2,
+      'weight' => 4,
     ),
   );
 
@@ -312,6 +232,84 @@ function cu_content_sequence_field_default_field_instances() {
       ),
       'type' => 'image_image',
       'weight' => 11,
+    ),
+  );
+
+  // Exported field_instance: 'bean-content_sequence-field_cont_seq_scale'.
+  $field_instances['bean-content_sequence-field_cont_seq_scale'] = array(
+    'bundle' => 'content_sequence',
+    'default_value' => array(
+      0 => array(
+        'value' => 2,
+      ),
+    ),
+    'default_value_function' => '',
+    'default_value_php' => '',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 4,
+      ),
+    ),
+    'entity_type' => 'bean',
+    'fences_wrapper' => 'no_wrapper',
+    'field_name' => 'field_cont_seq_scale',
+    'label' => 'Scale',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 9,
+    ),
+  );
+
+  // Exported field_instance: 'bean-content_sequence-field_cont_sequence_title'.
+  $field_instances['bean-content_sequence-field_cont_sequence_title'] = array(
+    'bundle' => 'content_sequence',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 6,
+      ),
+    ),
+    'entity_type' => 'bean',
+    'fences_wrapper' => 'no_wrapper',
+    'field_name' => 'field_cont_sequence_title',
+    'label' => 'Title',
+    'required' => 0,
+    'settings' => array(
+      'linkit' => array(
+        'button_text' => 'Search',
+        'enable' => 0,
+        'profile' => '',
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 3,
     ),
   );
 
@@ -808,8 +806,8 @@ function cu_content_sequence_field_default_field_instances() {
   t('Group');
   t('Image');
   t('Scale');
+  t('Sequence Content');
   t('Start Date');
-  t('Timeline Content');
   t('Title');
   t('Video');
 
