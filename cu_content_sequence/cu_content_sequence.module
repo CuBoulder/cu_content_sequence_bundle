@@ -89,7 +89,7 @@ function cu_content_sequence_preprocess_entity(&$vars) {
       // Add text to data.
       $events[$key]['text'] = array(
         'headline' => render($child['field_cont_seq_title']),
-        'text' => $child['field_cont_seq_body'][0]['#markup'],
+        'text' => !empty($child['field_cont_seq_body']) ? $child['field_cont_seq_body'][0]['#markup'] : '',
       );
       // Add group to data.
       if (!empty($child['field_cont_seq_group'])) {
