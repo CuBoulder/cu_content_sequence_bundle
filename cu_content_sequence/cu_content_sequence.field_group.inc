@@ -13,6 +13,37 @@ function cu_content_sequence_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_advanced|bean|content_sequence|form';
+  $field_group->group_name = 'group_advanced';
+  $field_group->entity_type = 'bean';
+  $field_group->bundle = 'content_sequence';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Advanced Settings',
+    'weight' => '5',
+    'children' => array(
+      0 => 'field_cont_seq_description',
+      1 => 'field_cont_seq_scale',
+      2 => 'field_cont_seq_photos',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'label' => 'Advanced Settings',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'id' => '',
+        'classes' => 'group-advanced field-group-fieldset',
+        'description' => 'These fields only apply to advanced timelines.',
+      ),
+      'formatter' => 'collapsed',
+    ),
+  );
+  $field_groups['group_advanced|bean|content_sequence|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_cont_seq_body|field_collection_item|field_cont_seq_content|form';
   $field_group->group_name = 'group_cont_seq_body';
   $field_group->entity_type = 'field_collection_item';
@@ -148,37 +179,6 @@ function cu_content_sequence_field_group_info() {
     ),
   );
   $field_groups['group_cont_seq_title|field_collection_item|field_cont_seq_content|form'] = $field_group;
-
-  $field_group = new stdClass();
-  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
-  $field_group->api_version = 1;
-  $field_group->identifier = 'group_advanced|bean|content_sequence|form';
-  $field_group->group_name = 'group_advanced';
-  $field_group->entity_type = 'bean';
-  $field_group->bundle = 'content_sequence';
-  $field_group->mode = 'form';
-  $field_group->parent_name = '';
-  $field_group->data = array(
-    'label' => 'Advanced Settings',
-    'weight' => '4',
-    'children' => array(
-      0 => 'field_cont_seq_description',
-      1 => 'field_cont_seq_scale',
-      2 => 'field_cont_seq_photos',
-    ),
-    'format_type' => 'fieldset',
-    'format_settings' => array(
-      'label' => 'Advanced Settings',
-      'instance_settings' => array(
-        'required_fields' => 1,
-        'id' => '',
-        'classes' => 'group-advanced field-group-fieldset',
-        'description' => 'These fields only apply to advanced timelines.',
-      ),
-      'formatter' => 'collapsed',
-    ),
-  );
-  $field_groups['group_advanced|bean|content_sequence|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
