@@ -2,7 +2,8 @@
 
 // Vertical Timeline Styles
 .cd-vertical-timeline {
-  ol, li {
+  ol.vertical-timeline-items,
+  ol.vertical-timeline-items > li {
     list-style: none;
     list-style-image: none;
     margin: 0;

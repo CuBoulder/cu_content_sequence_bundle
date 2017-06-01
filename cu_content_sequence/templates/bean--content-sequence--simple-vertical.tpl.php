@@ -3,7 +3,7 @@
     <h2><?php print $timeline_title; ?></h2>
   <?php endif; ?>
 	<div class="events-content">
-		<ol class="clearfix">
+		<ol class="vertical-timeline-items clearfix">
 			<?php foreach ($event_list as $item): ?>
 
 				<li class="timeline-single-item">

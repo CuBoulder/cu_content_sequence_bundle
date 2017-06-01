@@ -89,7 +89,7 @@ body #mobile-navigation-wrapper a { text-align: center; }
 .timeline-list-link { padding: 20px; text-align: center; }
 
 .cd-vertical-timeline { padding-bottom: 50px; }
-.cd-vertical-timeline ol, .cd-vertical-timeline li { list-style: none; list-style-image: none; margin: 0; padding: 0; }
+.cd-vertical-timeline ol.vertical-timeline-items, .cd-vertical-timeline ol.vertical-timeline-items > li { list-style: none; list-style-image: none; margin: 0; padding: 0; }
 
 .cd-vertical-timeline { position: relative; }
 .cd-vertical-timeline .events-content { position: relative; }
