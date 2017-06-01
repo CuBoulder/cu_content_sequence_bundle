@@ -197,7 +197,7 @@ Main Components
   -moz-transition: height 0.4s;
   transition: height 0.4s;
 }
-.cd-horizontal-timeline .events-content li {
+.cd-horizontal-timeline .events-content > ol > li {
   position: absolute;
   z-index: 1;
   width: 100%;

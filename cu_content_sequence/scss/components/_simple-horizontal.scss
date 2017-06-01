@@ -29,12 +29,27 @@ body {
 }
 
 .cd-horizontal-timeline {
-  ol, ul, li {
-    margin:0;
-    padding:0;
-    list-style: none;
-    list-style-image: none;
+  .timeline,
+  .cd-timeline-item-navigation-wrapper {
+    ol, ul, li {
+      margin:0;
+      padding:0;
+      list-style: none;
+      list-style-image: none;
+    }
   }
+  .events-content {
+    & > ol,
+    & > ol > li,
+    & > ul,
+    & > ul > li {
+       margin:0;
+       padding:0;
+       list-style: none;
+       list-style-image: none;
+     }
+  }
+
   padding-bottom: 20px;
   .events a {
     width: 120px;

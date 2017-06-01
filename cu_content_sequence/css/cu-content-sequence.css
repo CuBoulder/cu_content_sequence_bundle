@@ -48,7 +48,8 @@ body .block-inner .content .simple-horizontal-timeline-wrapper .timeline-content
 .simple-horizontal-timeline-wrapper .timeline-list-link { position: absolute; left: 0; right: 0; bottom: 0; }
 
 .cd-horizontal-timeline { padding-bottom: 20px; }
-.cd-horizontal-timeline ol, .cd-horizontal-timeline ul, .cd-horizontal-timeline li { margin: 0; padding: 0; list-style: none; list-style-image: none; }
+.cd-horizontal-timeline .timeline ol, .cd-horizontal-timeline .timeline ul, .cd-horizontal-timeline .timeline li, .cd-horizontal-timeline .cd-timeline-item-navigation-wrapper ol, .cd-horizontal-timeline .cd-timeline-item-navigation-wrapper ul, .cd-horizontal-timeline .cd-timeline-item-navigation-wrapper li { margin: 0; padding: 0; list-style: none; list-style-image: none; }
+.cd-horizontal-timeline .events-content > ol, .cd-horizontal-timeline .events-content > ol > li, .cd-horizontal-timeline .events-content > ul, .cd-horizontal-timeline .events-content > ul > li { margin: 0; padding: 0; list-style: none; list-style-image: none; }
 .cd-horizontal-timeline .events a { width: 120px; padding-left: 5px; padding-right: 5px; }
 .cd-horizontal-timeline .short-title { display: none; }
 
