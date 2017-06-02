@@ -3,6 +3,9 @@
 .adv-timeline-wrapper {
   display: flex;
   flex-direction: column-reverse;
+  .tl-text .tl-headline-date, .tl-text h3.tl-headline-date {
+    color: #757575;
+  }
 }
 .timeline-item-top {
   display: flex;
@@ -49,12 +52,14 @@
   padding:0px 20px 20px 20px;
 }
 
-h3.timeline-item-date {
+h3.timeline-item-date,
+h3.tl-headline-date {
   font-size:90%;
   text-transform: uppercase;
   color:#757575;
   margin: 0;
 }
+
 h3.timeline-item-title,
 h4.timeline-item-title {
   font-size: 150%;
@@ -123,5 +128,15 @@ h4.timeline-item-title {
   }
   .tl-timegroup .tl-timegroup-message {
     color:#656565;
+  }
+}
+body .content .adv-timeline-wrapper .tl-slide-content,
+body .content .adv-timeline-wrapper .tl-attribution {
+  a:link,
+  a:visited {
+    color: $blue;
+  }
+  a:hover {
+    color:$red;
   }
 }

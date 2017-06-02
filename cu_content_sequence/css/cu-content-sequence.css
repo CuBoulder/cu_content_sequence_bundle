@@ -1,6 +1,7 @@
 .timeline-list-link { padding: 20px; text-align: center; }
 
 .adv-timeline-wrapper { display: flex; flex-direction: column-reverse; }
+.adv-timeline-wrapper .tl-text .tl-headline-date, .adv-timeline-wrapper .tl-text h3.tl-headline-date { color: #757575; }
 
 .timeline-item-top { display: flex; flex-direction: column-reverse; }
 
@@ -15,7 +16,7 @@
 
 .timeline-item-body { padding: 0px 20px 20px 20px; }
 
-h3.timeline-item-date { font-size: 90%; text-transform: uppercase; color: #757575; margin: 0; }
+h3.timeline-item-date, h3.tl-headline-date { font-size: 90%; text-transform: uppercase; color: #757575; margin: 0; }
 
 h3.timeline-item-title, h4.timeline-item-title { font-size: 150%; }
 
@@ -37,6 +38,9 @@ h3.timeline-item-title, h4.timeline-item-title { font-size: 150%; }
 .adv-timeline-wrapper .tl-timegroup { background-color: #e2f1f9; }
 .adv-timeline-wrapper .tl-timegroup .tl-timegroup-message { color: #656565; }
 
+body .content .adv-timeline-wrapper .tl-slide-content a:link, body .content .adv-timeline-wrapper .tl-slide-content a:visited, body .content .adv-timeline-wrapper .tl-attribution a:link, body .content .adv-timeline-wrapper .tl-attribution a:visited { color: #007bc8; }
+body .content .adv-timeline-wrapper .tl-slide-content a:hover, body .content .adv-timeline-wrapper .tl-attribution a:hover { color: #e51c23; }
+
 .timeline-list-link { padding: 20px; text-align: center; }
 
 body .block-inner .content .simple-horizontal-timeline-wrapper a:link, body .block-inner .content .simple-horizontal-timeline-wrapper a:visited { color: #007bc8; }
@@ -48,7 +52,8 @@ body .block-inner .content .simple-horizontal-timeline-wrapper .timeline-content
 .simple-horizontal-timeline-wrapper .timeline-list-link { position: absolute; left: 0; right: 0; bottom: 0; }
 
 .cd-horizontal-timeline { padding-bottom: 20px; }
-.cd-horizontal-timeline ol, .cd-horizontal-timeline ul, .cd-horizontal-timeline li { margin: 0; padding: 0; list-style: none; list-style-image: none; }
+.cd-horizontal-timeline .timeline ol, .cd-horizontal-timeline .timeline ul, .cd-horizontal-timeline .timeline li, .cd-horizontal-timeline .cd-timeline-item-navigation-wrapper ol, .cd-horizontal-timeline .cd-timeline-item-navigation-wrapper ul, .cd-horizontal-timeline .cd-timeline-item-navigation-wrapper li { margin: 0; padding: 0; list-style: none; list-style-image: none; }
+.cd-horizontal-timeline .events-content > ol, .cd-horizontal-timeline .events-content > ol > li, .cd-horizontal-timeline .events-content > ul, .cd-horizontal-timeline .events-content > ul > li { margin: 0; padding: 0; list-style: none; list-style-image: none; }
 .cd-horizontal-timeline .events a { width: 120px; padding-left: 5px; padding-right: 5px; }
 .cd-horizontal-timeline .short-title { display: none; }
 
@@ -70,11 +75,6 @@ body .block-inner .content .simple-horizontal-timeline-wrapper .timeline-content
 .timeline-view-all-wrapper .timeline-item { margin: 0 0 20px 0; padding-bottom: 20px; border-bottom: 1px solid #d7d7d7; }
 .timeline-view-all-wrapper .timeline-item img { display: none; }
 
-body #mobile-navigation-wrapper { position: fixed; top: 0; left: 0; right: 0; bottom: 0; overflow-y: auto; overflow-x: hidden; height: 100vh; width: 100vw; z-index: 10; padding: 0 20px 40px; /* this fixes the buggy scrolling on webkit browsers - mobile devices only - when overflow property is applied */ -webkit-overflow-scrolling: touch; }
-body #mobile-navigation-wrapper #mobile-navigation { max-width: 320px; margin: 0 auto; }
-body #mobile-navigation-wrapper:before { content: "\f057"; font-family: 'FontAwesome'; position: fixed; top: 20px; right: 20px; font-size: 24px; z-index: 11; }
-body #mobile-navigation-wrapper a { text-align: center; }
-
 .cd-timeline-item-navigation { text-align: center; font-size: 200%; }
 .cd-timeline-item-navigation li { display: inline; }
 .cd-timeline-item-navigation a { display: inline-block; padding: 0 20px; }
@@ -88,7 +88,7 @@ body #mobile-navigation-wrapper a { text-align: center; }
 .timeline-list-link { padding: 20px; text-align: center; }
 
 .cd-vertical-timeline { padding-bottom: 50px; }
-.cd-vertical-timeline ol, .cd-vertical-timeline li { list-style: none; list-style-image: none; margin: 0; padding: 0; }
+.cd-vertical-timeline ol.vertical-timeline-items, .cd-vertical-timeline ol.vertical-timeline-items > li { list-style: none; list-style-image: none; margin: 0; padding: 0; }
 
 .cd-vertical-timeline { position: relative; }
 .cd-vertical-timeline .events-content { position: relative; }
@@ -97,8 +97,11 @@ body #mobile-navigation-wrapper a { text-align: center; }
 @media screen and (min-width: 768px) { .cd-vertical-timeline .events-content:before { top: 20px; bottom: 20px; left: 50%; }
   .cd-vertical-timeline .events-content:after { bottom: 20px; left: calc(50% - 4px); } }
 
+body .content .cd-vertical-timeline .timeline-item a:link, body .content .cd-vertical-timeline .timeline-item a:visited { color: #007bc8; }
+body .content .cd-vertical-timeline .timeline-item a:hover { color: #e51c23; }
+
 .cd-vertical-timeline .timeline-content-item { margin: 10px 20px 40px 50px; }
-.cd-vertical-timeline .timeline-item { background-color: #fff; margin: 10px 20px 40px 50px; position: relative; clear: both; z-index: 5; -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); transition: -webkit-box-shadow 0.5s ease, background-color 0.5s ease, color 0.5s ease; transition: -moz-box-shadow 0.5s ease, background-color 0.5s ease, color 0.5s ease; transition: box-shadow 0.5s ease, background-color 0.5s ease, color 0.5s ease; }
+.cd-vertical-timeline .timeline-item { color: #202020; background-color: #fff; margin: 10px 20px 40px 50px; position: relative; clear: both; z-index: 5; -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); transition: -webkit-box-shadow 0.5s ease, background-color 0.5s ease, color 0.5s ease; transition: -moz-box-shadow 0.5s ease, background-color 0.5s ease, color 0.5s ease; transition: box-shadow 0.5s ease, background-color 0.5s ease, color 0.5s ease; }
 .cd-vertical-timeline .timeline-item img { width: 100%; height: auto; display: block; }
 .cd-vertical-timeline .timeline-item:hover { -webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.3); -moz-box-shadow: 0 0 25px rgba(0, 0, 0, 0.3); box-shadow: 0 0 25px rgba(0, 0, 0, 0.3); }
 .cd-vertical-timeline .timeline-item .timeline-item-content { padding: 20px; }
