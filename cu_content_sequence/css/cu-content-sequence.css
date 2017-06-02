@@ -1,6 +1,7 @@
 .timeline-list-link { padding: 20px; text-align: center; }
 
 .adv-timeline-wrapper { display: flex; flex-direction: column-reverse; }
+.adv-timeline-wrapper .tl-text .tl-headline-date, .adv-timeline-wrapper .tl-text h3.tl-headline-date { color: #757575; }
 
 .timeline-item-top { display: flex; flex-direction: column-reverse; }
 
@@ -15,7 +16,7 @@
 
 .timeline-item-body { padding: 0px 20px 20px 20px; }
 
-h3.timeline-item-date { font-size: 90%; text-transform: uppercase; color: #757575; margin: 0; }
+h3.timeline-item-date, h3.tl-headline-date { font-size: 90%; text-transform: uppercase; color: #757575; margin: 0; }
 
 h3.timeline-item-title, h4.timeline-item-title { font-size: 150%; }
 
@@ -36,6 +37,9 @@ h3.timeline-item-title, h4.timeline-item-title { font-size: 150%; }
 .adv-timeline-wrapper .tl-slidenav-next:hover .tl-slidenav-description, .adv-timeline-wrapper .tl-slidenav-previous:hover .tl-slidenav-description { opacity: .8; }
 .adv-timeline-wrapper .tl-timegroup { background-color: #e2f1f9; }
 .adv-timeline-wrapper .tl-timegroup .tl-timegroup-message { color: #656565; }
+
+body .content .adv-timeline-wrapper .tl-slide-content a:link, body .content .adv-timeline-wrapper .tl-slide-content a:visited { color: #007bc8; }
+body .content .adv-timeline-wrapper .tl-slide-content a:hover { color: #e51c23; }
 
 .timeline-list-link { padding: 20px; text-align: center; }
 
