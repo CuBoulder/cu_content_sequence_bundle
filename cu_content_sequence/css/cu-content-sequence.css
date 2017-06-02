@@ -38,8 +38,8 @@ h3.timeline-item-title, h4.timeline-item-title { font-size: 150%; }
 .adv-timeline-wrapper .tl-timegroup { background-color: #e2f1f9; }
 .adv-timeline-wrapper .tl-timegroup .tl-timegroup-message { color: #656565; }
 
-body .content .adv-timeline-wrapper .tl-slide-content a:link, body .content .adv-timeline-wrapper .tl-slide-content a:visited { color: #007bc8; }
-body .content .adv-timeline-wrapper .tl-slide-content a:hover { color: #e51c23; }
+body .content .adv-timeline-wrapper .tl-slide-content a:link, body .content .adv-timeline-wrapper .tl-slide-content a:visited, body .content .adv-timeline-wrapper .tl-attribution a:link, body .content .adv-timeline-wrapper .tl-attribution a:visited { color: #007bc8; }
+body .content .adv-timeline-wrapper .tl-slide-content a:hover, body .content .adv-timeline-wrapper .tl-attribution a:hover { color: #e51c23; }
 
 .timeline-list-link { padding: 20px; text-align: center; }
 

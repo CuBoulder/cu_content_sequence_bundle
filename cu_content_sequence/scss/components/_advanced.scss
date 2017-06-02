@@ -130,7 +130,8 @@ h4.timeline-item-title {
     color:#656565;
   }
 }
-body .content .adv-timeline-wrapper .tl-slide-content {
+body .content .adv-timeline-wrapper .tl-slide-content,
+body .content .adv-timeline-wrapper .tl-attribution {
   a:link,
   a:visited {
     color: $blue;
