@@ -98,8 +98,11 @@ body #mobile-navigation-wrapper a { text-align: center; }
 @media screen and (min-width: 768px) { .cd-vertical-timeline .events-content:before { top: 20px; bottom: 20px; left: 50%; }
   .cd-vertical-timeline .events-content:after { bottom: 20px; left: calc(50% - 4px); } }
 
+body .content .cd-vertical-timeline .timeline-item a:link, body .content .cd-vertical-timeline .timeline-item a:visited { color: #007bc8; }
+body .content .cd-vertical-timeline .timeline-item a:hover { color: #e51c23; }
+
 .cd-vertical-timeline .timeline-content-item { margin: 10px 20px 40px 50px; }
-.cd-vertical-timeline .timeline-item { background-color: #fff; margin: 10px 20px 40px 50px; position: relative; clear: both; z-index: 5; -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); transition: -webkit-box-shadow 0.5s ease, background-color 0.5s ease, color 0.5s ease; transition: -moz-box-shadow 0.5s ease, background-color 0.5s ease, color 0.5s ease; transition: box-shadow 0.5s ease, background-color 0.5s ease, color 0.5s ease; }
+.cd-vertical-timeline .timeline-item { color: #202020; background-color: #fff; margin: 10px 20px 40px 50px; position: relative; clear: both; z-index: 5; -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); transition: -webkit-box-shadow 0.5s ease, background-color 0.5s ease, color 0.5s ease; transition: -moz-box-shadow 0.5s ease, background-color 0.5s ease, color 0.5s ease; transition: box-shadow 0.5s ease, background-color 0.5s ease, color 0.5s ease; }
 .cd-vertical-timeline .timeline-item img { width: 100%; height: auto; display: block; }
 .cd-vertical-timeline .timeline-item:hover { -webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.3); -moz-box-shadow: 0 0 25px rgba(0, 0, 0, 0.3); box-shadow: 0 0 25px rgba(0, 0, 0, 0.3); }
 .cd-vertical-timeline .timeline-item .timeline-item-content { padding: 20px; }
