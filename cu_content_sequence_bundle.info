@@ -4,4 +4,5 @@ package = CU Content Sequence Bundle
 version = 7.x-1.1
 project status url = https://github.com/CuBoulder/cu_content_sequence_bundle
 bundle_group = addon_bundles
+description = Create sequences of content such as steps or timelines.
 dependencies[] = cu_content_sequence
