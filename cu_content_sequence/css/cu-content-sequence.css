@@ -41,6 +41,8 @@ h3.timeline-item-title, h4.timeline-item-title { font-size: 150%; }
 body .content .adv-timeline-wrapper .tl-slide-content a:link, body .content .adv-timeline-wrapper .tl-slide-content a:visited, body .content .adv-timeline-wrapper .tl-attribution a:link, body .content .adv-timeline-wrapper .tl-attribution a:visited { color: #007bc8; }
 body .content .adv-timeline-wrapper .tl-slide-content a:hover, body .content .adv-timeline-wrapper .tl-attribution a:hover { color: #e51c23; }
 
+.tl-attribution { display: none; }
+
 .timeline-list-link { padding: 20px; text-align: center; }
 
 body .block-inner .content .simple-horizontal-timeline-wrapper a:link, body .block-inner .content .simple-horizontal-timeline-wrapper a:visited { color: #007bc8; }
