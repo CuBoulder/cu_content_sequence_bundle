@@ -10,10 +10,19 @@
   transition: box-shadow 0.5s ease, background-color 0.5s ease, color 0.5s ease;
 }
 
+$blue: #007BC8;
+$red: #e51c23;
+
 .timeline-list-link {
   padding:20px;
   text-align: center;
 }
-
-$blue: #007BC8;
-$red: #e51c23;
+.adv-timeline-list {
+  background:#fff;
+  color:#202020;
+  padding:10px;
+  a:link,
+  a:visited {
+    color:$blue;
+  }
+}
