@@ -8,3 +8,8 @@ bundle_group = addon_bundles
 description = Create sequences of content such as steps or timelines.
 dependencies[] = cu_content_sequence
 project_demo_url = http://www.colorado.edu/webcentral/node/1550
+
+bundle_roles[] = developer
+bundle_roles[] = administrator
+bundle_roles[] = site_owner
+bundle_roles[] = configuration_manager
